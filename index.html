@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nati Bunker</title>
+
+  <title>Nati Bunker — La Matriz</title>
 
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -17,145 +19,400 @@
       background: #f7f7f5;
       color: #222;
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    }
+
+    .app {
+      width: 100%;
+      max-width: 900px;
+      margin: auto;
       padding: 24px;
     }
 
-    .login-container {
-      width: 100%;
-      max-width: 420px;
-      background: white;
-      padding: 40px 32px;
-      border-radius: 24px;
-      box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+    /* HEADER */
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
     }
 
-    .logo {
-      text-align: center;
-      margin-bottom: 35px;
-    }
-
-    .logo h1 {
-      font-size: 32px;
+    .brand h1 {
+      font-size: 28px;
       letter-spacing: -1px;
     }
 
-    .logo p {
-      margin-top: 8px;
+    .brand p {
+      margin-top: 4px;
       color: #777;
       font-size: 14px;
     }
 
-    .form-group {
-      margin-bottom: 18px;
-    }
-
-    label {
-      display: block;
-      font-size: 14px;
-      font-weight: bold;
-      margin-bottom: 8px;
-    }
-
-    input[type="email"],
-    input[type="password"] {
-      width: 100%;
-      padding: 15px;
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      font-size: 16px;
-      outline: none;
-    }
-
-    input:focus {
-      border-color: #000EFF;
-    }
-
-    .remember {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin: 18px 0 24px;
-      font-size: 14px;
-      color: #555;
-    }
-
-    .remember input {
-      width: 17px;
-      height: 17px;
-      accent-color: #000EFF;
-    }
-
-    .login-button {
-      width: 100%;
-      padding: 15px;
+    .menu {
+      width: 42px;
+      height: 42px;
       border: none;
       border-radius: 12px;
-      background: #000EFF;
-      color: white;
-      font-size: 16px;
-      font-weight: bold;
+      background: white;
+      font-size: 20px;
       cursor: pointer;
     }
 
-    .login-button:hover {
+    /* AVAILABLE */
+
+    .balance-card {
+      background: #000EFF;
+      color: white;
+      border-radius: 24px;
+      padding: 28px;
+      margin-bottom: 30px;
+    }
+
+    .balance-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 14px;
       opacity: 0.9;
     }
 
-    .footer {
-      text-align: center;
-      margin-top: 25px;
-      font-size: 12px;
-      color: #999;
+    .eye {
+      border: none;
+      background: transparent;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
     }
+
+    .balance {
+      margin-top: 12px;
+      font-size: 36px;
+      font-weight: bold;
+      letter-spacing: -1px;
+    }
+
+    /* QUICK ACTIONS */
+
+    .section-title {
+      font-size: 18px;
+      margin-bottom: 14px;
+    }
+
+    .quick-actions {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+
+    .quick-button {
+      background: white;
+      border: none;
+      border-radius: 18px;
+      padding: 22px;
+      text-align: left;
+      cursor: pointer;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.05);
+      transition: transform 0.15s;
+    }
+
+    .quick-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .quick-icon {
+      font-size: 26px;
+      margin-bottom: 12px;
+    }
+
+    .quick-title {
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .quick-description {
+      color: #888;
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    /* TO DO */
+
+    .todo {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.05);
+    }
+
+    .todo-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+    }
+
+    .todo-item:last-child {
+      border-bottom: none;
+    }
+
+    .todo-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .todo-icon {
+      font-size: 22px;
+    }
+
+    .todo-text {
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .arrow {
+      color: #999;
+      font-size: 18px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 600px) {
+
+      .app {
+        padding: 18px;
+      }
+
+      .balance {
+        font-size: 32px;
+      }
+
+      .quick-actions {
+        gap: 10px;
+      }
+
+      .quick-button {
+        padding: 18px;
+      }
+
+    }
+
   </style>
 </head>
 
 <body>
 
-  <div class="login-container">
+  <main class="app">
 
-    <div class="logo">
-      <h1>Nati Bunker</h1>
-      <p>La matriz</p>
-    </div>
+    <!-- HEADER -->
 
-    <form>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          placeholder="tu@email.com"
-        >
+    <header class="header">
+
+      <div class="brand">
+        <h1>Nati Bunker</h1>
+        <p>La Matriz</p>
       </div>
 
-      <div class="form-group">
-        <label for="password">Contraseña</label>
-        <input
-          type="password"
-          id="password"
-          placeholder="••••••••"
-        >
-      </div>
-
-      <label class="remember">
-        <input type="checkbox">
-        Recordarme
-      </label>
-
-      <button type="submit" class="login-button">
-        Entrar
+      <button class="menu">
+        ☰
       </button>
-    </form>
 
-    <div class="footer">
-      Nati Bunker · Sistema personal
-    </div>
+    </header>
 
-  </div>
+
+    <!-- BALANCE -->
+
+    <section class="balance-card">
+
+      <div class="balance-title">
+
+        <span>💰 DISPONIBLE</span>
+
+        <button
+          class="eye"
+          onclick="toggleBalance()"
+          id="eyeButton"
+        >
+          👁
+        </button>
+
+      </div>
+
+      <div
+        class="balance"
+        id="balance"
+      >
+        $ 1.234.567
+      </div>
+
+    </section>
+
+
+    <!-- QUICK ACTIONS -->
+
+    <h2 class="section-title">
+      ⚡ ACCIONES RÁPIDAS
+    </h2>
+
+    <section class="quick-actions">
+
+      <button class="quick-button">
+
+        <div class="quick-icon">
+          🍫
+        </div>
+
+        <div class="quick-title">
+          Gasto rápido
+        </div>
+
+        <div class="quick-description">
+          Kiosco, café, gustitos...
+        </div>
+
+      </button>
+
+
+      <button class="quick-button">
+
+        <div class="quick-icon">
+          🛒
+        </div>
+
+        <div class="quick-title">
+          Supermercado
+        </div>
+
+        <div class="quick-description">
+          Stock y lista de compras
+        </div>
+
+      </button>
+
+
+      <button class="quick-button">
+
+        <div class="quick-icon">
+          🧾
+        </div>
+
+        <div class="quick-title">
+          Pagar cuenta
+        </div>
+
+        <div class="quick-description">
+          Luz, gas, internet...
+        </div>
+
+      </button>
+
+
+      <button class="quick-button">
+
+        <div class="quick-icon">
+          💰
+        </div>
+
+        <div class="quick-title">
+          Separar plata
+        </div>
+
+        <div class="quick-description">
+          Ahorros y objetivos
+        </div>
+
+      </button>
+
+    </section>
+
+
+    <!-- TODO -->
+
+    <h2 class="section-title">
+      🔔 PARA HACER
+    </h2>
+
+    <section class="todo">
+
+      <div class="todo-item">
+
+        <div class="todo-left">
+
+          <span class="todo-icon">
+            🛒
+          </span>
+
+          <span class="todo-text">
+            3 productos para comprar
+          </span>
+
+        </div>
+
+        <span class="arrow">
+          ›
+        </span>
+
+      </div>
+
+
+      <div class="todo-item">
+
+        <div class="todo-left">
+
+          <span class="todo-icon">
+            🧾
+          </span>
+
+          <span class="todo-text">
+            2 cuentas pendientes
+          </span>
+
+        </div>
+
+        <span class="arrow">
+          ›
+        </span>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script>
+
+    let balanceVisible = true;
+
+    function toggleBalance() {
+
+      const balance = document.getElementById("balance");
+      const eye = document.getElementById("eyeButton");
+
+      if (balanceVisible) {
+
+        balance.textContent = "••••••";
+
+        eye.textContent = "🙈";
+
+        balanceVisible = false;
+
+      } else {
+
+        balance.textContent = "$ 1.234.567";
+
+        eye.textContent = "👁";
+
+        balanceVisible = true;
+
+      }
+
+    }
+
+  </script>
 
 </body>
 </html>
