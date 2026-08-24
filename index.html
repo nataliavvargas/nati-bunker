@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Nati Bunker — La Matriz</title>
-<link rel="stylesheet" href="style.css">
 
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -34,30 +35,25 @@
     <section class="balance-card">
 
       <input
-  type="checkbox"
-  id="balanceToggle"
-  class="balance-toggle"
->
-
-<div class="balance-title">
-
-  <span>💰 DISPONIBLE</span>
-
-  <label
-    for="balanceToggle"
-    class="eye"
-  >
-    👁
-  </label>
-
-</div>
-
-<div class="balance">
-  $ 1.234.567
-</div>
-        class="balance"
-        id="balance"
+        type="checkbox"
+        id="balanceToggle"
+        class="balance-toggle"
       >
+
+      <div class="balance-title">
+
+        <span>💰 DISPONIBLE</span>
+
+        <label
+          for="balanceToggle"
+          class="eye"
+        >
+          👁
+        </label>
+
+      </div>
+
+      <div class="balance">
         $ 1.234.567
       </div>
 
@@ -195,36 +191,6 @@
 
   </main>
 
-<script>
-
-  let balanceVisible = true;
-
-  function toggleBalance() {
-
-    const balance = document.getElementById("balance");
-    const eye = document.getElementById("eyeButton");
-
-    if (!balance || !eye) return;
-
-    if (balanceVisible) {
-
-      balance.textContent = "••••••";
-      eye.textContent = "🙈";
-      balanceVisible = false;
-
-    } else {
-
-      balance.textContent = "$ 1.234.567";
-      eye.textContent = "👁";
-      balanceVisible = true;
-
-    }
-
-  }
-
-</script>
-  
-
-
 </body>
+
 </html>
