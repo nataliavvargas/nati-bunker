@@ -33,21 +33,28 @@
 
     <section class="balance-card">
 
-      <div class="balance-title">
+      <input
+  type="checkbox"
+  id="balanceToggle"
+  class="balance-toggle"
+>
 
-        <span>💰 DISPONIBLE</span>
+<div class="balance-title">
 
-        <button
-          class="eye"
-          onclick="toggleBalance()"
-          id="eyeButton"
-        >
-          👁
-        </button>
+  <span>💰 DISPONIBLE</span>
 
-      </div>
+  <label
+    for="balanceToggle"
+    class="eye"
+  >
+    👁
+  </label>
 
-      <div
+</div>
+
+<div class="balance">
+  $ 1.234.567
+</div>
         class="balance"
         id="balance"
       >
