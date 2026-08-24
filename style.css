@@ -1,0 +1,201 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f7f5;
+  color: #222;
+  min-height: 100vh;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* APP */
+
+.app {
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  padding: 24px;
+}
+
+/* HEADER */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.brand h1 {
+  font-size: 28px;
+  letter-spacing: -1px;
+}
+
+.brand p {
+  margin-top: 4px;
+  color: #777;
+  font-size: 14px;
+}
+
+.menu {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 12px;
+  background: white;
+  font-size: 20px;
+}
+
+/* BALANCE */
+
+.balance-card {
+  background: #000EFF;
+  color: white;
+  border-radius: 24px;
+  padding: 28px;
+  margin-bottom: 30px;
+}
+
+.balance-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.eye {
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 20px;
+}
+
+.balance {
+  margin-top: 12px;
+  font-size: 36px;
+  font-weight: bold;
+  letter-spacing: -1px;
+}
+
+/* SECTION TITLES */
+
+.section-title {
+  font-size: 18px;
+  margin-bottom: 14px;
+}
+
+/* QUICK ACTIONS */
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.quick-button {
+  background: white;
+  border: none;
+  border-radius: 18px;
+  padding: 22px;
+  text-align: left;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
+  transition: transform 0.15s;
+}
+
+.quick-button:hover {
+  transform: translateY(-2px);
+}
+
+.quick-icon {
+  font-size: 26px;
+  margin-bottom: 12px;
+}
+
+.quick-title {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.quick-description {
+  color: #888;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* TO DO */
+
+.todo {
+  background: white;
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.todo-item:last-child {
+  border-bottom: none;
+}
+
+.todo-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.todo-icon {
+  font-size: 22px;
+}
+
+.todo-text {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.arrow {
+  color: #999;
+  font-size: 18px;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .app {
+    padding: 18px;
+  }
+
+  .balance {
+    font-size: 32px;
+  }
+
+  .quick-actions {
+    gap: 10px;
+  }
+
+  .quick-button {
+    padding: 18px;
+  }
+
+}
