@@ -1,12 +1,9 @@
-/* ================================
-   BASE
-================================ */
-
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
 
 body {
   font-family: Arial, sans-serif;
@@ -15,20 +12,20 @@ body {
   min-height: 100vh;
 }
 
+
 button,
 input,
 select {
   font: inherit;
 }
 
+
 button {
   cursor: pointer;
 }
 
 
-/* ================================
-   APP
-================================ */
+/* APP */
 
 .app {
   width: 100%;
@@ -38,9 +35,7 @@ button {
 }
 
 
-/* ================================
-   HEADER
-================================ */
+/* HEADER */
 
 .header {
   display: flex;
@@ -49,16 +44,19 @@ button {
   margin-bottom: 30px;
 }
 
+
 .brand h1 {
   font-size: 28px;
   letter-spacing: -1px;
 }
+
 
 .brand p {
   margin-top: 4px;
   color: #777;
   font-size: 14px;
 }
+
 
 .menu {
   width: 42px;
@@ -70,46 +68,59 @@ button {
 }
 
 
-/* ================================
-   SIDE MENU
-================================ */
+/* MENU */
 
 .side-menu {
   position: fixed;
   top: 0;
   right: -320px;
+
   width: 320px;
   height: 100vh;
+
   background: white;
+
   z-index: 1000;
+
   padding: 24px;
+
   box-shadow: -8px 0 25px rgba(0, 0, 0, 0.12);
+
   transition: right 0.25s ease;
 }
+
 
 .side-menu.open {
   right: 0;
 }
 
+
 .side-menu-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   margin-bottom: 30px;
 }
+
 
 .side-menu-header strong {
   font-size: 18px;
 }
 
+
 .close-menu {
   width: 40px;
   height: 40px;
+
   border: none;
   border-radius: 12px;
+
   background: #f5f5f5;
+
   font-size: 24px;
 }
+
 
 .menu-options {
   display: flex;
@@ -117,406 +128,502 @@ button {
   gap: 8px;
 }
 
+
 .menu-options button {
   border: none;
   background: transparent;
+
   text-align: left;
+
   padding: 14px 8px;
+
   border-radius: 12px;
+
   font-size: 15px;
 }
+
 
 .menu-options button:hover {
   background: #f5f5f5;
 }
 
 
-/* ================================
-   BALANCE
-================================ */
+/* BALANCE */
 
 .balance-card {
   position: relative;
+
   background: #000EFF;
+
   color: white;
+
   border-radius: 24px;
+
   padding: 28px;
+
   margin-bottom: 30px;
 }
 
+
 .balance-toggle {
   position: absolute;
+
   opacity: 0;
+
   pointer-events: none;
 }
+
 
 .balance-title {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   font-size: 14px;
+
   opacity: 0.9;
 }
+
 
 .eye {
   border: none;
   background: transparent;
+
   color: white;
+
   font-size: 20px;
+
   cursor: pointer;
 }
 
+
 .balance {
   margin-top: 12px;
+
   font-size: 36px;
+
   font-weight: bold;
+
   letter-spacing: -1px;
+
+  position: relative;
 }
 
 
-/* ================================
-   SECTION TITLES
-================================ */
+.balance-toggle:checked ~ .balance {
+  color: transparent;
+}
+
+
+.balance-toggle:checked ~ .balance::after {
+  content: "••••••";
+
+  color: white;
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+}
+
+
+/* SECTION TITLES */
 
 .section-title {
   font-size: 18px;
+
   margin-bottom: 14px;
 }
 
 
-/* ================================
-   QUICK ACTIONS
-================================ */
+/* QUICK ACTIONS */
 
 .quick-actions {
   display: grid;
+
   grid-template-columns: repeat(2, 1fr);
+
   gap: 14px;
+
   margin-bottom: 32px;
 }
 
+
 .quick-button {
   background: white;
+
   border: none;
+
   border-radius: 18px;
+
   padding: 22px;
+
   text-align: left;
+
   box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
+
   transition: transform 0.15s;
 }
+
 
 .quick-button:hover {
   transform: translateY(-2px);
 }
 
+
 .quick-icon {
   font-size: 26px;
+
   margin-bottom: 12px;
 }
 
+
 .quick-title {
   font-weight: bold;
+
   font-size: 15px;
 }
 
+
 .quick-description {
   color: #888;
+
   font-size: 12px;
+
   margin-top: 4px;
 }
 
 
-/* ================================
-   TODO
-================================ */
+/* TODO */
 
 .todo {
   background: white;
+
   border-radius: 20px;
+
   padding: 22px;
+
   box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
 }
 
+
 .todo-item {
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
+
   padding: 16px 0;
+
   border-bottom: 1px solid #eee;
 }
+
 
 .todo-item:last-child {
   border-bottom: none;
 }
 
+
 .todo-left {
   display: flex;
+
   align-items: center;
+
   gap: 12px;
 }
+
 
 .todo-icon {
   font-size: 22px;
 }
 
+
 .todo-text {
   font-size: 14px;
+
   font-weight: bold;
 }
 
+
 .arrow {
   color: #999;
+
   font-size: 18px;
 }
 
 
-/* ================================
-   STOCK
-================================ */
+/* STOCK */
 
 .stock-screen,
 .category-screen {
   display: none;
+
   padding-bottom: 40px;
 }
 
+
 .stock-header {
   display: flex;
+
   align-items: center;
+
   gap: 14px;
+
   margin-bottom: 24px;
 }
 
+
 .stock-header h2 {
   font-size: 24px;
+
   letter-spacing: -0.5px;
 }
 
+
 .stock-header p {
   margin-top: 3px;
+
   color: #888;
+
   font-size: 13px;
 }
+
 
 .back-button {
   width: 42px;
   height: 42px;
+
   border: none;
+
   border-radius: 12px;
+
   background: white;
+
   font-size: 22px;
+
   color: #333;
 }
 
 
-/* ================================
-   SEARCH
-================================ */
+/* SEARCH */
 
 .stock-search {
   display: flex;
+
   align-items: center;
+
   gap: 10px;
+
   background: white;
+
   border-radius: 16px;
+
   padding: 8px 10px 8px 16px;
+
   margin-bottom: 24px;
+
   box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
 }
+
 
 .stock-search span {
   font-size: 16px;
 }
 
+
 .stock-search input {
   flex: 1;
+
   border: none;
+
   outline: none;
+
   background: transparent;
+
   font-size: 14px;
+
   min-width: 0;
 }
+
 
 .stock-search input::placeholder {
   color: #aaa;
 }
 
+
 .add-product {
   width: 38px;
   height: 38px;
+
   border: none;
+
   border-radius: 11px;
+
   background: #000EFF;
+
   color: white;
+
   font-size: 22px;
+
   line-height: 1;
 }
 
 
-/* ================================
-   STOCK CATEGORIES
-================================ */
+/* CATEGORIES */
 
 .stock-categories {
   display: flex;
+
   flex-direction: column;
+
   gap: 10px;
 }
 
+
 .stock-category {
   width: 100%;
+
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
+
   border: none;
+
   border-radius: 16px;
+
   background: white;
+
   padding: 18px;
+
   font-size: 15px;
+
   text-align: left;
+
   box-shadow: 0 5px 18px rgba(0, 0, 0, 0.04);
+
   transition: transform 0.15s;
 }
 
+
 .stock-category span:last-child {
   color: #999;
+
   font-size: 20px;
 }
+
 
 .stock-category:hover {
   transform: translateX(2px);
 }
 
 
-/* ================================
-   PRODUCTS
-================================ */
+/* PRODUCTS */
 
 .product-list {
   display: flex;
+
   flex-direction: column;
+
   gap: 10px;
 }
 
+
 .product-item {
   width: 100%;
+
   border: none;
+
   border-radius: 16px;
+
   background: white;
+
   padding: 17px 18px;
+
   text-align: left;
+
   box-shadow: 0 5px 18px rgba(0, 0, 0, 0.04);
+
   transition: transform 0.15s;
 }
+
 
 .product-item:hover {
   transform: translateX(2px);
 }
 
+
 .product-info {
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
+
   gap: 16px;
 }
 
+
 .product-info strong {
   font-size: 15px;
+
   font-weight: 600;
 }
 
-.product-info span {
+
+.product-info > span {
   color: #777;
+
   font-size: 13px;
+
   white-space: nowrap;
 }
 
 
-/* ================================
-   MOBILE
-================================ */
+.product-name {
+  display: flex;
 
-@media (max-width: 600px) {
+  align-items: center;
 
-  .app {
-    padding: 18px;
-  }
-
-  .balance {
-    font-size: 32px;
-  }
-
-  .quick-actions {
-    gap: 10px;
-  }
-
-  .quick-button {
-    padding: 18px;
-  }
-
-  .side-menu {
-    width: 100%;
-    right: -100%;
-  }
-
-  .stock-header h2 {
-    font-size: 22px;
-  }
-
-  .stock-category {
-    padding: 17px 16px;
-  }
-
-  .product-item {
-    padding: 16px;
-  }
-
-}
-/* ================================
-   OJITO DEL SALDO
-================================ */
-
-.balance-toggle:checked ~ .balance {
-  color: transparent;
-  position: relative;
+  gap: 7px;
 }
 
-.balance-toggle:checked ~ .balance::after {
-  content: "••••••";
-  color: white;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-
-.balance-toggle:checked ~ .balance-title .eye {
-  opacity: 1;
-}
-/* ================================
-   NOTAS DE PRODUCTOS
-================================ */
 
 .note-button {
   border: none;
+
   background: transparent;
+
   padding: 0;
+
   margin: 0;
+
   cursor: pointer;
+
   font-size: 15px;
+
   line-height: 1;
 }
+
 
 .note-button:hover {
   transform: scale(1.1);
 }
 
+
+/* NOTE POPUP */
+
 .note-popup {
   position: fixed;
+
   z-index: 2000;
 
   max-width: 220px;
 
   background: #111;
+
   color: white;
 
   padding: 9px 12px;
@@ -524,6 +631,7 @@ button {
   border-radius: 10px;
 
   font-size: 12px;
+
   line-height: 1.3;
 
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.18);
@@ -531,15 +639,18 @@ button {
   animation: noteAppear 0.15s ease;
 }
 
+
 .note-popup::after {
   content: "";
 
   position: absolute;
 
   bottom: -5px;
+
   left: 14px;
 
   width: 10px;
+
   height: 10px;
 
   background: #111;
@@ -547,16 +658,67 @@ button {
   transform: rotate(45deg);
 }
 
+
 @keyframes noteAppear {
 
   from {
     opacity: 0;
+
     transform: translateY(4px);
   }
 
   to {
     opacity: 1;
+
     transform: translateY(0);
+  }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .app {
+    padding: 18px;
+  }
+
+
+  .balance {
+    font-size: 32px;
+  }
+
+
+  .quick-actions {
+    gap: 10px;
+  }
+
+
+  .quick-button {
+    padding: 18px;
+  }
+
+
+  .side-menu {
+    width: 100%;
+
+    right: -100%;
+  }
+
+
+  .stock-header h2 {
+    font-size: 22px;
+  }
+
+
+  .stock-category {
+    padding: 17px 16px;
+  }
+
+
+  .product-item {
+    padding: 16px;
   }
 
 }
