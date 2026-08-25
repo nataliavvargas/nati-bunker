@@ -2,36 +2,24 @@
 // NATI BUNKER — LA MATRIZ
 // ================================
 
-let balanceVisible = true;
+// MENÚ
 
-function toggleBalance() {
+const menuButton = document.getElementById("menuButton");
+const sideMenu = document.getElementById("sideMenu");
+const closeMenu = document.getElementById("closeMenu");
 
-  const balance = document.getElementById("balance");
-  const eye = document.getElementById("eyeButton");
+if (menuButton && sideMenu) {
 
-  if (!balance || !eye) {
-    return;
-  }
+  menuButton.addEventListener("click", function () {
+    sideMenu.classList.add("open");
+  });
 
-  if (balanceVisible) {
-
-    balance.textContent = "••••••";
-    eye.textContent = "🙈";
-    balanceVisible = false;
-
-  } else {
-
-    balance.textContent = "$ 1.234.567";
-    eye.textContent = "👁";
-    balanceVisible = true;
-
-  }
 }
 
+if (closeMenu && sideMenu) {
 
-// Conectar el botón del ojito
-const eyeButton = document.getElementById("eyeButton");
+  closeMenu.addEventListener("click", function () {
+    sideMenu.classList.remove("open");
+  });
 
-if (eyeButton) {
-  eyeButton.addEventListener("click", toggleBalance);
 }
