@@ -485,24 +485,7 @@
 
       <!-- NOTA -->
 
-      <div
-        id="notePopup"
-        style="
-          display:none;
-          position:fixed;
-          left:50%;
-          bottom:30px;
-          transform:translateX(-50%);
-          background:#111;
-          color:white;
-          padding:12px 18px;
-          border-radius:12px;
-          font-size:14px;
-          z-index:2000;
-          box-shadow:0 5px 20px rgba(0,0,0,.2);
-        "
-      >
-      </div>
+  
 
 
     </section>
@@ -794,31 +777,33 @@
 
     function showNote(event, note) {
 
-      event.stopPropagation();
+  event.stopPropagation();
 
+  const oldPopup = document.querySelector(".note-popup");
 
-      const popup =
-        document.getElementById("notePopup");
+  if (oldPopup) {
+    oldPopup.remove();
+  }
 
+  const popup = document.createElement("div");
 
-      popup.textContent = note;
+  popup.className = "note-popup";
 
+  popup.textContent = note;
 
-      popup.style.display = "block";
+  document.body.appendChild(popup);
 
+  const button = event.currentTarget;
 
-      setTimeout(function() {
+  const rect = button.getBoundingClientRect();
 
-        popup.style.display = "none";
+  popup.style.left = rect.left + "px";
+  popup.style.top = (rect.bottom + 8) + "px";
 
-      }, 2500);
+  setTimeout(function() {
 
-    }
+    popup.remove();
 
+  }, 2500);
 
-  </script>
-
-
-</body>
-
-</html>
+}
