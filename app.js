@@ -2,24 +2,26 @@
 // NATI BUNKER — LA MATRIZ
 // ================================
 
-// MENÚ
+document.addEventListener("DOMContentLoaded", function () {
 
-const menuButton = document.getElementById("menuButton");
-const sideMenu = document.getElementById("sideMenu");
-const closeMenu = document.getElementById("closeMenu");
+  const menuButton = document.getElementById("menuButton");
+  const sideMenu = document.getElementById("sideMenu");
+  const closeMenu = document.getElementById("closeMenu");
 
-if (menuButton && sideMenu) {
+  if (menuButton && sideMenu) {
 
-  menuButton.addEventListener("click", function () {
-    sideMenu.classList.add("open");
-  });
+    menuButton.addEventListener("click", function () {
+      sideMenu.classList.add("open");
+    });
 
-}
+  }
 
-if (closeMenu && sideMenu) {
+  if (closeMenu && sideMenu) {
 
-  closeMenu.addEventListener("click", function () {
-    sideMenu.classList.remove("open");
-  });
+    closeMenu.addEventListener("click", function () {
+      sideMenu.classList.remove("open");
+    });
 
-}
+  }
+
+});
