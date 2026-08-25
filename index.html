@@ -23,7 +23,10 @@
         <p>La Matriz</p>
       </div>
 
-      <button class="menu" id="menuButton">
+<button
+  class="menu"
+  onclick="document.getElementById('sideMenu').classList.add('open')"
+>
   ☰
 </button>
 
@@ -35,7 +38,9 @@
   <div class="side-menu-header">
     <strong>LA MATRIZ</strong>
 
-    <button class="close-menu" id="closeMenu">
+    <button
+  class="close-menu"
+  onclick="document.getElementById('sideMenu').classList.remove('open')"
       ×
     </button>
   </div>
