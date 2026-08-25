@@ -32,20 +32,16 @@
 
       <div class="brand">
 
-        <h1>
-          Nati Bunker
-        </h1>
+        <h1>Nati Bunker</h1>
 
-        <p>
-          La Matriz
-        </p>
+        <p>La Matriz</p>
 
       </div>
 
 
       <button
         class="menu"
-        onclick="document.getElementById('sideMenu').classList.add('open')"
+        onclick="openMenu()"
       >
         ☰
       </button>
@@ -70,7 +66,7 @@
 
         <button
           class="close-menu"
-          onclick="document.getElementById('sideMenu').classList.remove('open')"
+          onclick="closeMenu()"
         >
           ×
         </button>
@@ -80,14 +76,12 @@
 
       <nav class="menu-options">
 
-        <button>
+        <button onclick="closeMenu()">
           🏠 Inicio
         </button>
 
 
-        <button
-          onclick="openStock()"
-        >
+        <button onclick="openStock()">
           📦 Stock
         </button>
 
@@ -123,7 +117,6 @@
       class="stock-screen"
       id="stockScreen"
     >
-
 
       <div class="stock-header">
 
@@ -189,9 +182,7 @@
             🧴 Aseo / Botiquín
           </span>
 
-          <span>
-            ›
-          </span>
+          <span>›</span>
 
         </button>
 
@@ -202,9 +193,7 @@
             🧹 Limpieza
           </span>
 
-          <span>
-            ›
-          </span>
+          <span>›</span>
 
         </button>
 
@@ -218,9 +207,7 @@
             🍔 Abarrotes
           </span>
 
-          <span>
-            ›
-          </span>
+          <span>›</span>
 
         </button>
 
@@ -231,9 +218,7 @@
             🧂 Condimentos
           </span>
 
-          <span>
-            ›
-          </span>
+          <span>›</span>
 
         </button>
 
@@ -244,9 +229,7 @@
             🍝 Pastas
           </span>
 
-          <span>
-            ›
-          </span>
+          <span>›</span>
 
         </button>
 
@@ -257,9 +240,7 @@
             🥛 Lácteos
           </span>
 
-          <span>
-            ›
-          </span>
+          <span>›</span>
 
         </button>
 
@@ -270,9 +251,7 @@
             🥩 Carne
           </span>
 
-          <span>
-            ›
-          </span>
+          <span>›</span>
 
         </button>
 
@@ -283,9 +262,7 @@
             🥤 Bebidas
           </span>
 
-          <span>
-            ›
-          </span>
+          <span>›</span>
 
         </button>
 
@@ -296,9 +273,7 @@
             🥦 Verduras
           </span>
 
-          <span>
-            ›
-          </span>
+          <span>›</span>
 
         </button>
 
@@ -318,7 +293,6 @@
 
 
       <div class="stock-header">
-
 
         <button
           class="back-button"
@@ -402,30 +376,19 @@
           <div class="product-info">
 
 
-            <div
-              class="product-name"
-              style="
-                display:flex;
-                align-items:center;
-                gap:7px;
-              "
-            >
+            <div class="product-name">
 
               <strong>
                 Arroz
               </strong>
 
 
-              <span
+              <button
                 class="note-button"
                 onclick="showNote(event, 'Comprar 1+')"
-                style="
-                  cursor:pointer;
-                  font-size:16px;
-                "
               >
                 💬
-              </span>
+              </button>
 
             </div>
 
@@ -481,11 +444,6 @@
 
 
       </div>
-
-
-      <!-- NOTA -->
-
-  
 
 
     </section>
@@ -679,10 +637,26 @@
 
   <!-- JAVASCRIPT -->
 
-  <script src="app.js"></script>
-
-
   <script>
+
+    function openMenu() {
+
+      document
+        .getElementById("sideMenu")
+        .classList
+        .add("open");
+
+    }
+
+
+    function closeMenu() {
+
+      document
+        .getElementById("sideMenu")
+        .classList
+        .remove("open");
+
+    }
 
 
     function openStock() {
@@ -708,13 +682,9 @@
       document.querySelector(".todo").style.display = "none";
 
 
-      document
-        .getElementById("sideMenu")
-        .classList
-        .remove("open");
+      closeMenu();
 
     }
-
 
 
     function closeStock() {
@@ -742,7 +712,6 @@
     }
 
 
-
     function openCategory(category) {
 
       if (category === "abarrotes") {
@@ -756,7 +725,6 @@
     }
 
 
-
     function closeCategory() {
 
       document.getElementById("abarrotesScreen").style.display = "none";
@@ -766,7 +734,6 @@
     }
 
 
-
     function openAddProduct() {
 
       alert("Próximamente: agregar producto");
@@ -774,36 +741,59 @@
     }
 
 
-
     function showNote(event, note) {
 
-  event.stopPropagation();
+      event.stopPropagation();
 
-  const oldPopup = document.querySelector(".note-popup");
 
-  if (oldPopup) {
-    oldPopup.remove();
-  }
+      const oldPopup =
+        document.querySelector(".note-popup");
 
-  const popup = document.createElement("div");
 
-  popup.className = "note-popup";
+      if (oldPopup) {
+        oldPopup.remove();
+      }
 
-  popup.textContent = note;
 
-  document.body.appendChild(popup);
+      const popup =
+        document.createElement("div");
 
-  const button = event.currentTarget;
 
-  const rect = button.getBoundingClientRect();
+      popup.className = "note-popup";
 
-  popup.style.left = rect.left + "px";
-  popup.style.top = (rect.bottom + 8) + "px";
+      popup.textContent = note;
 
-  setTimeout(function() {
 
-    popup.remove();
+      document.body.appendChild(popup);
 
-  }, 2500);
 
-}
+      const button =
+        event.currentTarget;
+
+
+      const rect =
+        button.getBoundingClientRect();
+
+
+      popup.style.left =
+        rect.left + "px";
+
+
+      popup.style.top =
+        (rect.bottom + 8) + "px";
+
+
+      setTimeout(function() {
+
+        popup.remove();
+
+      }, 2500);
+
+    }
+
+  </script>
+
+
+</body>
+
+</html>
