@@ -151,10 +151,13 @@
           <span>›</span>
         </button>
 
-        <button class="stock-category">
-          <span>🍔 Abarrotes</span>
-          <span>›</span>
-        </button>
+       <button
+  class="stock-category"
+  onclick="openCategory('abarrotes')"
+>
+  <span>🍔 Abarrotes</span>
+  <span>›</span>
+</button>
 
         <button class="stock-category">
           <span>🧂 Condimentos</span>
@@ -189,7 +192,132 @@
       </div>
 
     </section>
+<!-- CATEGORÍA: ABARROTES -->
 
+<section
+  class="category-screen"
+  id="abarrotesScreen"
+>
+
+  <div class="stock-header">
+
+    <button
+      class="back-button"
+      onclick="closeCategory()"
+    >
+      ←
+    </button>
+
+    <div>
+
+      <h2>🍔 Abarrotes</h2>
+
+      <p>
+        Despensa
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- BUSCADOR -->
+
+  <div class="stock-search">
+
+    <span>
+      🔎
+    </span>
+
+    <input
+      type="text"
+      placeholder="Buscar producto..."
+    >
+
+    <button
+      class="add-product"
+      onclick="openAddProduct()"
+    >
+      ＋
+    </button>
+
+  </div>
+
+
+  <!-- PRODUCTOS -->
+
+  <div class="product-list">
+
+    <button class="product-item">
+
+      <div class="product-info">
+
+        <strong>
+          Atún
+        </strong>
+
+        <span>
+          3 latas
+        </span>
+
+      </div>
+
+    </button>
+
+
+    <button class="product-item">
+
+      <div class="product-info">
+
+        <strong>
+          Arroz
+        </strong>
+
+        <span>
+          2 unidades
+        </span>
+
+      </div>
+
+    </button>
+
+
+    <button class="product-item">
+
+      <div class="product-info">
+
+        <strong>
+          Aceite
+        </strong>
+
+        <span>
+          3 unidades
+        </span>
+
+      </div>
+
+    </button>
+
+
+    <button class="product-item">
+
+      <div class="product-info">
+
+        <strong>
+          Harina
+        </strong>
+
+        <span>
+          1 unidad
+        </span>
+
+      </div>
+
+    </button>
+
+  </div>
+
+</section>
 
     <!-- BALANCE -->
 
@@ -362,47 +490,69 @@
 
   <!-- STOCK FUNCTIONS -->
 
-  <script>
+ <script>
 
-    function openStock() {
+  function openStock() {
 
-      document.querySelector(".stock-screen").style.display = "block";
+    document.querySelector(".stock-screen").style.display = "block";
 
-      document.querySelector(".balance-card").style.display = "none";
+    document.querySelector(".balance-card").style.display = "none";
 
-      document.querySelector(".section-title").style.display = "none";
+    document.querySelector(".section-title").style.display = "none";
 
-      document.querySelector(".quick-actions").style.display = "none";
+    document.querySelector(".quick-actions").style.display = "none";
 
-      document.querySelector(".todo").style.display = "none";
+    document.querySelector(".todo").style.display = "none";
 
-      document.getElementById("sideMenu").classList.remove("open");
+    document.getElementById("sideMenu").classList.remove("open");
 
-    }
+  }
 
 
-    function closeStock() {
+  function closeStock() {
+
+    document.querySelector(".stock-screen").style.display = "none";
+
+    document.querySelector(".balance-card").style.display = "";
+
+    document.querySelector(".section-title").style.display = "";
+
+    document.querySelector(".quick-actions").style.display = "";
+
+    document.querySelector(".todo").style.display = "";
+
+  }
+
+
+  function openCategory(category) {
+
+    if (category === "abarrotes") {
 
       document.querySelector(".stock-screen").style.display = "none";
 
-      document.querySelector(".balance-card").style.display = "";
-
-      document.querySelector(".section-title").style.display = "";
-
-      document.querySelector(".quick-actions").style.display = "";
-
-      document.querySelector(".todo").style.display = "";
+      document.getElementById("abarrotesScreen").style.display = "block";
 
     }
 
+  }
 
-    function openAddProduct() {
 
-      alert("Próximamente: agregar producto");
+  function closeCategory() {
 
-    }
+    document.getElementById("abarrotesScreen").style.display = "none";
 
-  </script>
+    document.querySelector(".stock-screen").style.display = "block";
+
+  }
+
+
+  function openAddProduct() {
+
+    alert("Próximamente: agregar producto");
+
+  }
+
+</script>
 
 
 </body>
