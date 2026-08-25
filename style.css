@@ -1,3 +1,7 @@
+/* ================================
+   BASE
+================================ */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -21,7 +25,10 @@ button {
   cursor: pointer;
 }
 
-/* APP */
+
+/* ================================
+   APP
+================================ */
 
 .app {
   width: 100%;
@@ -30,7 +37,10 @@ button {
   padding: 24px;
 }
 
-/* HEADER */
+
+/* ================================
+   HEADER
+================================ */
 
 .header {
   display: flex;
@@ -59,15 +69,85 @@ button {
   font-size: 20px;
 }
 
-/* BALANCE */
+
+/* ================================
+   SIDE MENU
+================================ */
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 320px;
+  height: 100vh;
+  background: white;
+  z-index: 1000;
+  padding: 24px;
+  box-shadow: -8px 0 25px rgba(0, 0, 0, 0.12);
+  transition: right 0.25s ease;
+}
+
+.side-menu.open {
+  right: 0;
+}
+
+.side-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.side-menu-header strong {
+  font-size: 18px;
+}
+
+.close-menu {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 12px;
+  background: #f5f5f5;
+  font-size: 24px;
+}
+
+.menu-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.menu-options button {
+  border: none;
+  background: transparent;
+  text-align: left;
+  padding: 14px 8px;
+  border-radius: 12px;
+  font-size: 15px;
+}
+
+.menu-options button:hover {
+  background: #f5f5f5;
+}
+
+
+/* ================================
+   BALANCE
+================================ */
 
 .balance-card {
+  position: relative;
   background: #000EFF;
   color: white;
   border-radius: 24px;
   padding: 28px;
   margin-bottom: 30px;
-  position: relative;
+}
+
+.balance-toggle {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .balance-title {
@@ -93,35 +173,20 @@ button {
   letter-spacing: -1px;
 }
 
-/* OCULTAR / MOSTRAR DISPONIBLE */
 
-.balance-toggle {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.balance-toggle:checked ~ .balance {
-  color: transparent;
-  position: relative;
-}
-
-.balance-toggle:checked ~ .balance::after {
-  content: "••••••";
-  color: white;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-
-/* SECTION TITLES */
+/* ================================
+   SECTION TITLES
+================================ */
 
 .section-title {
   font-size: 18px;
   margin-bottom: 14px;
 }
 
-/* QUICK ACTIONS */
+
+/* ================================
+   QUICK ACTIONS
+================================ */
 
 .quick-actions {
   display: grid;
@@ -160,7 +225,10 @@ button {
   margin-top: 4px;
 }
 
-/* TO DO */
+
+/* ================================
+   TODO
+================================ */
 
 .todo {
   background: white;
@@ -201,106 +269,13 @@ button {
   font-size: 18px;
 }
 
-/* MOBILE */
 
-@media (max-width: 600px) {
-
-  .app {
-    padding: 18px;
-  }
-
-  .balance {
-    font-size: 32px;
-  }
-
-  .quick-actions {
-    gap: 10px;
-  }
-
-  .quick-button {
-    padding: 18px;
-  }
-
-}
-/* ================================
-   MENU LATERAL
-================================ */
-
-.side-menu {
-  position: fixed;
-  top: 0;
-  right: -320px;
-  width: 300px;
-  height: 100vh;
-  background: white;
-  z-index: 1000;
-  padding: 24px;
-  box-shadow: -8px 0 25px rgba(0, 0, 0, 0.12);
-  transition: right 0.25s ease;
-}
-
-.side-menu.open {
-  right: 0;
-}
-
-.side-menu-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 30px;
-}
-
-.side-menu-header strong {
-  font-size: 18px;
-  letter-spacing: -0.5px;
-}
-
-.close-menu {
-  width: 38px;
-  height: 38px;
-  border: none;
-  border-radius: 10px;
-  background: #f5f5f5;
-  font-size: 26px;
-  color: #555;
-}
-
-.menu-options {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.menu-options button {
-  width: 100%;
-  border: none;
-  background: transparent;
-  padding: 15px 12px;
-  border-radius: 12px;
-  text-align: left;
-  font-size: 15px;
-  color: #222;
-}
-
-.menu-options button:hover {
-  background: #f5f5f5;
-}
-
-/* MOBILE */
-
-@media (max-width: 600px) {
-
-  .side-menu {
-    width: 85%;
-    max-width: 320px;
-  }
-
-}
 /* ================================
    STOCK
 ================================ */
 
-.stock-screen {
+.stock-screen,
+.category-screen {
   display: none;
   padding-bottom: 40px;
 }
@@ -332,6 +307,11 @@ button {
   font-size: 22px;
   color: #333;
 }
+
+
+/* ================================
+   SEARCH
+================================ */
 
 .stock-search {
   display: flex;
@@ -372,6 +352,11 @@ button {
   line-height: 1;
 }
 
+
+/* ================================
+   STOCK CATEGORIES
+================================ */
+
 .stock-categories {
   display: flex;
   flex-direction: column;
@@ -390,6 +375,7 @@ button {
   font-size: 15px;
   text-align: left;
   box-shadow: 0 5px 18px rgba(0, 0, 0, 0.04);
+  transition: transform 0.15s;
 }
 
 .stock-category span:last-child {
@@ -401,10 +387,76 @@ button {
   transform: translateX(2px);
 }
 
+
+/* ================================
+   PRODUCTS
+================================ */
+
+.product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.product-item {
+  width: 100%;
+  border: none;
+  border-radius: 16px;
+  background: white;
+  padding: 17px 18px;
+  text-align: left;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.04);
+  transition: transform 0.15s;
+}
+
+.product-item:hover {
+  transform: translateX(2px);
+}
+
+.product-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.product-info strong {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.product-info span {
+  color: #777;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
 @media (max-width: 600px) {
 
-  .stock-screen {
-    padding-bottom: 24px;
+  .app {
+    padding: 18px;
+  }
+
+  .balance {
+    font-size: 32px;
+  }
+
+  .quick-actions {
+    gap: 10px;
+  }
+
+  .quick-button {
+    padding: 18px;
+  }
+
+  .side-menu {
+    width: 100%;
+    right: -100%;
   }
 
   .stock-header h2 {
@@ -413,6 +465,10 @@ button {
 
   .stock-category {
     padding: 17px 16px;
+  }
+
+  .product-item {
+    padding: 16px;
   }
 
 }
