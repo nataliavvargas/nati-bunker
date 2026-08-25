@@ -23,140 +23,174 @@
         <p>La Matriz</p>
       </div>
 
-<button
-  class="menu"
-  onclick="document.getElementById('sideMenu').classList.add('open')"
->
-  ☰
-</button>
+      <button
+        class="menu"
+        onclick="document.getElementById('sideMenu').classList.add('open')"
+      >
+        ☰
+      </button>
 
     </header>
-<!-- MENU -->
-
-<aside class="side-menu" id="sideMenu">
-
-  <div class="side-menu-header">
-    <strong>LA MATRIZ</strong>
-
-    <button
-  class="close-menu"
-  onclick="document.getElementById('sideMenu').classList.remove('open')"
-      ×
-    </button>
-  </div>
-
-  <nav class="menu-options">
-
-    <button>🏠 Inicio</button>
-
-    <button>📦 Stock</button>
-
-    <button>🛒 Lista de compras</button>
-
-    <button>💸 Gastos</button>
-
-    <button>🧾 Cuentas</button>
-
-    <button>💵 Ingresos</button>
-
-  </nav>
-
-</aside>
-<!-- STOCK -->
-
-<section class="stock-screen" id="stockScreen">
-
-  <div class="stock-header">
-
-    <button
-      class="back-button"
-      onclick="closeStock()"
-    >
-      ←
-    </button>
-
-    <div>
-      <h2>📦 Stock</h2>
-      <p>Lo que hay en casa</p>
-    </div>
-
-  </div>
 
 
-  <!-- BUSCADOR -->
+    <!-- MENU -->
 
-  <div class="stock-search">
+    <aside class="side-menu" id="sideMenu">
 
-    <span>🔎</span>
+      <div class="side-menu-header">
 
-    <input
-      type="text"
-      id="stockSearch"
-      placeholder="Buscar producto..."
+        <strong>LA MATRIZ</strong>
+
+        <button
+          class="close-menu"
+          onclick="document.getElementById('sideMenu').classList.remove('open')"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <nav class="menu-options">
+
+        <button>
+          🏠 Inicio
+        </button>
+
+        <button
+          onclick="openStock()"
+        >
+          📦 Stock
+        </button>
+
+        <button>
+          🛒 Lista de compras
+        </button>
+
+        <button>
+          💸 Gastos
+        </button>
+
+        <button>
+          🧾 Cuentas
+        </button>
+
+        <button>
+          💵 Ingresos
+        </button>
+
+      </nav>
+
+    </aside>
+
+
+    <!-- STOCK -->
+
+    <section
+      class="stock-screen"
+      id="stockScreen"
     >
 
-    <button
-      class="add-product"
-      onclick="openAddProduct()"
-    >
-      ＋
-    </button>
+      <div class="stock-header">
 
-  </div>
+        <button
+          class="back-button"
+          onclick="closeStock()"
+        >
+          ←
+        </button>
+
+        <div>
+
+          <h2>📦 Stock</h2>
+
+          <p>
+            Lo que hay en casa
+          </p>
+
+        </div>
+
+      </div>
 
 
-  <!-- CATEGORÍAS -->
+      <!-- BUSCADOR -->
 
-  <div class="stock-categories">
+      <div class="stock-search">
 
-    <button class="stock-category">
-      <span>🧴 Aseo / Botiquín</span>
-      <span>›</span>
-    </button>
+        <span>
+          🔎
+        </span>
 
-    <button class="stock-category">
-      <span>🧹 Limpieza</span>
-      <span>›</span>
-    </button>
+        <input
+          type="text"
+          id="stockSearch"
+          placeholder="Buscar producto..."
+        >
 
-    <button class="stock-category">
-      <span>🍔 Abarrotes</span>
-      <span>›</span>
-    </button>
+        <button
+          class="add-product"
+          onclick="openAddProduct()"
+        >
+          ＋
+        </button>
 
-    <button class="stock-category">
-      <span>🧂 Condimentos</span>
-      <span>›</span>
-    </button>
+      </div>
 
-    <button class="stock-category">
-      <span>🍝 Pastas</span>
-      <span>›</span>
-    </button>
 
-    <button class="stock-category">
-      <span>🥛 Lácteos</span>
-      <span>›</span>
-    </button>
+      <!-- CATEGORÍAS -->
 
-    <button class="stock-category">
-      <span>🥩 Carne</span>
-      <span>›</span>
-    </button>
+      <div class="stock-categories">
 
-    <button class="stock-category">
-      <span>🥤 Bebidas</span>
-      <span>›</span>
-    </button>
+        <button class="stock-category">
+          <span>🧴 Aseo / Botiquín</span>
+          <span>›</span>
+        </button>
 
-    <button class="stock-category">
-      <span>🥦 Verduras</span>
-      <span>›</span>
-    </button>
+        <button class="stock-category">
+          <span>🧹 Limpieza</span>
+          <span>›</span>
+        </button>
 
-  </div>
+        <button class="stock-category">
+          <span>🍔 Abarrotes</span>
+          <span>›</span>
+        </button>
 
-</section>
+        <button class="stock-category">
+          <span>🧂 Condimentos</span>
+          <span>›</span>
+        </button>
+
+        <button class="stock-category">
+          <span>🍝 Pastas</span>
+          <span>›</span>
+        </button>
+
+        <button class="stock-category">
+          <span>🥛 Lácteos</span>
+          <span>›</span>
+        </button>
+
+        <button class="stock-category">
+          <span>🥩 Carne</span>
+          <span>›</span>
+        </button>
+
+        <button class="stock-category">
+          <span>🥤 Bebidas</span>
+          <span>›</span>
+        </button>
+
+        <button class="stock-category">
+          <span>🥦 Verduras</span>
+          <span>›</span>
+        </button>
+
+      </div>
+
+    </section>
+
+
     <!-- BALANCE -->
 
     <section class="balance-card">
@@ -169,7 +203,9 @@
 
       <div class="balance-title">
 
-        <span>💰 DISPONIBLE</span>
+        <span>
+          💰 DISPONIBLE
+        </span>
 
         <label
           for="balanceToggle"
@@ -249,15 +285,15 @@
       <button class="quick-button">
 
         <div class="quick-icon">
-          💰
+          💵
         </div>
 
         <div class="quick-title">
-          Separar plata
+          Ingreso
         </div>
 
         <div class="quick-description">
-          Ahorros y objetivos
+          Sueldo y otros ingresos
         </div>
 
       </button>
@@ -317,7 +353,58 @@
     </section>
 
   </main>
-<script src="app.js"></script>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script src="app.js"></script>
+
+
+  <!-- STOCK FUNCTIONS -->
+
+  <script>
+
+    function openStock() {
+
+      document.querySelector(".stock-screen").style.display = "block";
+
+      document.querySelector(".balance-card").style.display = "none";
+
+      document.querySelector(".section-title").style.display = "none";
+
+      document.querySelector(".quick-actions").style.display = "none";
+
+      document.querySelector(".todo").style.display = "none";
+
+      document.getElementById("sideMenu").classList.remove("open");
+
+    }
+
+
+    function closeStock() {
+
+      document.querySelector(".stock-screen").style.display = "none";
+
+      document.querySelector(".balance-card").style.display = "";
+
+      document.querySelector(".section-title").style.display = "";
+
+      document.querySelector(".quick-actions").style.display = "";
+
+      document.querySelector(".todo").style.display = "";
+
+    }
+
+
+    function openAddProduct() {
+
+      alert("Próximamente: agregar producto");
+
+    }
+
+  </script>
+
+
 </body>
 
 </html>
