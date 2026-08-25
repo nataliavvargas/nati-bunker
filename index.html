@@ -488,67 +488,77 @@
   <script src="app.js"></script>
 
 
- <!-- STOCK FUNCTIONS -->
+  <!-- STOCK FUNCTIONS -->
 
-<script>
+  <script>
 
-  function openStock() {
+    function openStock() {
 
-    document.querySelector(".stock-screen").style.display = "block";
-    document.querySelector(".category-screen").style.display = "none";
+      document.querySelector(".stock-screen").style.display = "block";
+      document.querySelector(".category-screen").style.display = "none";
 
-    document.querySelector(".balance-card").style.display = "none";
-    document.querySelector(".section-title").style.display = "none";
-    document.querySelector(".quick-actions").style.display = "none";
-    document.querySelector(".todo").style.display = "none";
+      document.querySelector(".balance-card").style.display = "none";
 
-    document.getElementById("sideMenu").classList.remove("open");
+      document.querySelectorAll(".section-title").forEach(function(element) {
+        element.style.display = "none";
+      });
 
-  }
+      document.querySelector(".quick-actions").style.display = "none";
+      document.querySelector(".todo").style.display = "none";
 
-
-  function closeStock() {
-
-    document.querySelector(".stock-screen").style.display = "none";
-    document.querySelector(".category-screen").style.display = "none";
-
-    document.querySelector(".balance-card").style.display = "";
-    document.querySelector(".section-title").style.display = "";
-    document.querySelector(".quick-actions").style.display = "";
-    document.querySelector(".todo").style.display = "";
-
-  }
-
-
-  function openCategory(category) {
-
-    if (category === "abarrotes") {
-
-      document.querySelector(".stock-screen").style.display = "none";
-
-      document.getElementById("abarrotesScreen").style.display = "block";
+      document.getElementById("sideMenu").classList.remove("open");
 
     }
 
-  }
+
+    function closeStock() {
+
+      document.querySelector(".stock-screen").style.display = "none";
+      document.querySelector(".category-screen").style.display = "none";
+
+      document.querySelector(".balance-card").style.display = "";
+
+      document.querySelectorAll(".section-title").forEach(function(element) {
+        element.style.display = "";
+      });
+
+      document.querySelector(".quick-actions").style.display = "";
+      document.querySelector(".todo").style.display = "";
+
+    }
 
 
-  function closeCategory() {
+    function openCategory(category) {
 
-    document.getElementById("abarrotesScreen").style.display = "none";
+      if (category === "abarrotes") {
 
-    document.querySelector(".stock-screen").style.display = "block";
+        document.querySelector(".stock-screen").style.display = "none";
 
-  }
+        document.getElementById("abarrotesScreen").style.display = "block";
+
+      }
+
+    }
 
 
-  function openAddProduct() {
+    function closeCategory() {
 
-    alert("Próximamente: agregar producto");
+      document.getElementById("abarrotesScreen").style.display = "none";
 
-  }
+      document.querySelector(".stock-screen").style.display = "block";
 
-</script>
+    }
+
+
+    function openAddProduct() {
+
+      alert("Próximamente: agregar producto");
+
+    }
+
+  </script>
+
+
 </body>
 
 </html>
