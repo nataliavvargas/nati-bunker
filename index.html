@@ -2,26 +2,46 @@
 <html lang="es">
 
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Nati Bunker — La Matriz</title>
 
-  <link rel="stylesheet" href="style.css">
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
 </head>
+
 
 <body>
 
+
   <main class="app">
+
 
     <!-- HEADER -->
 
     <header class="header">
 
       <div class="brand">
-        <h1>Nati Bunker</h1>
-        <p>La Matriz</p>
+
+        <h1>
+          Nati Bunker
+        </h1>
+
+        <p>
+          La Matriz
+        </p>
+
       </div>
+
 
       <button
         class="menu"
@@ -33,13 +53,20 @@
     </header>
 
 
+
     <!-- MENU -->
 
-    <aside class="side-menu" id="sideMenu">
+    <aside
+      class="side-menu"
+      id="sideMenu"
+    >
 
       <div class="side-menu-header">
 
-        <strong>LA MATRIZ</strong>
+        <strong>
+          LA MATRIZ
+        </strong>
+
 
         <button
           class="close-menu"
@@ -57,23 +84,28 @@
           🏠 Inicio
         </button>
 
+
         <button
           onclick="openStock()"
         >
           📦 Stock
         </button>
 
+
         <button>
           🛒 Lista de compras
         </button>
+
 
         <button>
           💸 Gastos
         </button>
 
+
         <button>
           🧾 Cuentas
         </button>
+
 
         <button>
           💵 Ingresos
@@ -84,12 +116,14 @@
     </aside>
 
 
+
     <!-- STOCK -->
 
     <section
       class="stock-screen"
       id="stockScreen"
     >
+
 
       <div class="stock-header">
 
@@ -100,9 +134,12 @@
           ←
         </button>
 
+
         <div>
 
-          <h2>📦 Stock</h2>
+          <h2>
+            📦 Stock
+          </h2>
 
           <p>
             Lo que hay en casa
@@ -113,6 +150,7 @@
       </div>
 
 
+
       <!-- BUSCADOR -->
 
       <div class="stock-search">
@@ -121,11 +159,13 @@
           🔎
         </span>
 
+
         <input
           type="text"
           id="stockSearch"
           placeholder="Buscar producto..."
         >
+
 
         <button
           class="add-product"
@@ -137,191 +177,342 @@
       </div>
 
 
+
       <!-- CATEGORÍAS -->
 
       <div class="stock-categories">
 
-        <button class="stock-category">
-          <span>🧴 Aseo / Botiquín</span>
-          <span>›</span>
-        </button>
 
         <button class="stock-category">
-          <span>🧹 Limpieza</span>
-          <span>›</span>
+
+          <span>
+            🧴 Aseo / Botiquín
+          </span>
+
+          <span>
+            ›
+          </span>
+
         </button>
 
-       <button
-  class="stock-category"
-  onclick="openCategory('abarrotes')"
->
-  <span>🍔 Abarrotes</span>
-  <span>›</span>
-</button>
-
-        <button class="stock-category">
-          <span>🧂 Condimentos</span>
-          <span>›</span>
-        </button>
 
         <button class="stock-category">
-          <span>🍝 Pastas</span>
-          <span>›</span>
+
+          <span>
+            🧹 Limpieza
+          </span>
+
+          <span>
+            ›
+          </span>
+
         </button>
 
-        <button class="stock-category">
-          <span>🥛 Lácteos</span>
-          <span>›</span>
+
+        <button
+          class="stock-category"
+          onclick="openCategory('abarrotes')"
+        >
+
+          <span>
+            🍔 Abarrotes
+          </span>
+
+          <span>
+            ›
+          </span>
+
         </button>
 
-        <button class="stock-category">
-          <span>🥩 Carne</span>
-          <span>›</span>
-        </button>
 
         <button class="stock-category">
-          <span>🥤 Bebidas</span>
-          <span>›</span>
+
+          <span>
+            🧂 Condimentos
+          </span>
+
+          <span>
+            ›
+          </span>
+
         </button>
 
+
         <button class="stock-category">
-          <span>🥦 Verduras</span>
-          <span>›</span>
+
+          <span>
+            🍝 Pastas
+          </span>
+
+          <span>
+            ›
+          </span>
+
         </button>
+
+
+        <button class="stock-category">
+
+          <span>
+            🥛 Lácteos
+          </span>
+
+          <span>
+            ›
+          </span>
+
+        </button>
+
+
+        <button class="stock-category">
+
+          <span>
+            🥩 Carne
+          </span>
+
+          <span>
+            ›
+          </span>
+
+        </button>
+
+
+        <button class="stock-category">
+
+          <span>
+            🥤 Bebidas
+          </span>
+
+          <span>
+            ›
+          </span>
+
+        </button>
+
+
+        <button class="stock-category">
+
+          <span>
+            🥦 Verduras
+          </span>
+
+          <span>
+            ›
+          </span>
+
+        </button>
+
 
       </div>
 
     </section>
-<!-- CATEGORÍA: ABARROTES -->
-
-<section
-  class="category-screen"
-  id="abarrotesScreen"
->
-
-  <div class="stock-header">
-
-    <button
-      class="back-button"
-      onclick="closeCategory()"
-    >
-      ←
-    </button>
-
-    <div>
-
-      <h2>🍔 Abarrotes</h2>
-
-      <p>
-        Despensa
-      </p>
-
-    </div>
-
-  </div>
 
 
-  <!-- BUSCADOR -->
 
-  <div class="stock-search">
+    <!-- ABARROTES -->
 
-    <span>
-      🔎
-    </span>
-
-    <input
-      type="text"
-      placeholder="Buscar producto..."
+    <section
+      class="category-screen"
+      id="abarrotesScreen"
     >
 
-    <button
-      class="add-product"
-      onclick="openAddProduct()"
-    >
-      ＋
-    </button>
 
-  </div>
+      <div class="stock-header">
 
 
-  <!-- PRODUCTOS -->
+        <button
+          class="back-button"
+          onclick="closeCategory()"
+        >
+          ←
+        </button>
 
-  <div class="product-list">
 
-    <button class="product-item">
+        <div>
 
-      <div class="product-info">
+          <h2>
+            🍔 Abarrotes
+          </h2>
 
-        <strong>
-          Atún
-        </strong>
+          <p>
+            Despensa
+          </p>
 
-        <span>
-          3 latas
-        </span>
+        </div>
 
       </div>
 
-    </button>
 
 
-    <button class="product-item">
+      <!-- BUSCADOR -->
 
-      <div class="product-info">
-
-        <strong>
-          Arroz
-        </strong>
+      <div class="stock-search">
 
         <span>
-          2 unidades
+          🔎
         </span>
+
+
+        <input
+          type="text"
+          placeholder="Buscar producto..."
+        >
+
+
+        <button
+          class="add-product"
+          onclick="openAddProduct()"
+        >
+          ＋
+        </button>
 
       </div>
 
-    </button>
 
 
-    <button class="product-item">
+      <!-- PRODUCTOS -->
 
-      <div class="product-info">
+      <div class="product-list">
 
-        <strong>
-          Aceite
-        </strong>
 
-        <span>
-          3 unidades
-        </span>
+        <!-- ATÚN -->
+
+        <div class="product-item">
+
+          <div class="product-info">
+
+            <strong>
+              Atún
+            </strong>
+
+            <span>
+              3 latas
+            </span>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- ARROZ -->
+
+        <div class="product-item">
+
+          <div class="product-info">
+
+
+            <div
+              class="product-name"
+              style="
+                display:flex;
+                align-items:center;
+                gap:7px;
+              "
+            >
+
+              <strong>
+                Arroz
+              </strong>
+
+
+              <span
+                class="note-button"
+                onclick="showNote(event, 'Comprar 1+')"
+                style="
+                  cursor:pointer;
+                  font-size:16px;
+                "
+              >
+                💬
+              </span>
+
+            </div>
+
+
+            <span>
+              2 unidades
+            </span>
+
+
+          </div>
+
+        </div>
+
+
+
+        <!-- ACEITE -->
+
+        <div class="product-item">
+
+          <div class="product-info">
+
+            <strong>
+              Aceite
+            </strong>
+
+            <span>
+              3 unidades
+            </span>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- HARINA -->
+
+        <div class="product-item">
+
+          <div class="product-info">
+
+            <strong>
+              Harina
+            </strong>
+
+            <span>
+              1 unidad
+            </span>
+
+          </div>
+
+        </div>
+
 
       </div>
 
-    </button>
 
+      <!-- NOTA -->
 
-    <button class="product-item">
-
-      <div class="product-info">
-
-        <strong>
-          Harina
-        </strong>
-
-        <span>
-          1 unidad
-        </span>
-
+      <div
+        id="notePopup"
+        style="
+          display:none;
+          position:fixed;
+          left:50%;
+          bottom:30px;
+          transform:translateX(-50%);
+          background:#111;
+          color:white;
+          padding:12px 18px;
+          border-radius:12px;
+          font-size:14px;
+          z-index:2000;
+          box-shadow:0 5px 20px rgba(0,0,0,.2);
+        "
+      >
       </div>
 
-    </button>
 
-  </div>
+    </section>
 
-</section>
+
 
     <!-- BALANCE -->
 
     <section class="balance-card">
+
 
       <input
         type="checkbox"
@@ -329,11 +520,13 @@
         class="balance-toggle"
       >
 
+
       <div class="balance-title">
 
         <span>
           💰 DISPONIBLE
         </span>
+
 
         <label
           for="balanceToggle"
@@ -344,11 +537,14 @@
 
       </div>
 
+
       <div class="balance">
         $ 1.234.567
       </div>
 
+
     </section>
+
 
 
     <!-- QUICK ACTIONS -->
@@ -357,7 +553,9 @@
       ⚡ ACCIONES RÁPIDAS
     </h2>
 
+
     <section class="quick-actions">
+
 
       <button class="quick-button">
 
@@ -374,6 +572,7 @@
         </div>
 
       </button>
+
 
 
       <button class="quick-button">
@@ -393,6 +592,7 @@
       </button>
 
 
+
       <button class="quick-button">
 
         <div class="quick-icon">
@@ -408,6 +608,7 @@
         </div>
 
       </button>
+
 
 
       <button class="quick-button">
@@ -426,7 +627,9 @@
 
       </button>
 
+
     </section>
+
 
 
     <!-- TODO -->
@@ -435,7 +638,9 @@
       🔔 PARA HACER
     </h2>
 
+
     <section class="todo">
+
 
       <div class="todo-item">
 
@@ -451,11 +656,13 @@
 
         </div>
 
+
         <span class="arrow">
           ›
         </span>
 
       </div>
+
 
 
       <div class="todo-item">
@@ -472,15 +679,19 @@
 
         </div>
 
+
         <span class="arrow">
           ›
         </span>
 
       </div>
 
+
     </section>
 
+
   </main>
+
 
 
   <!-- JAVASCRIPT -->
@@ -488,44 +699,65 @@
   <script src="app.js"></script>
 
 
-  <!-- STOCK FUNCTIONS -->
-
   <script>
+
 
     function openStock() {
 
       document.querySelector(".stock-screen").style.display = "block";
+
       document.querySelector(".category-screen").style.display = "none";
 
       document.querySelector(".balance-card").style.display = "none";
 
-      document.querySelectorAll(".section-title").forEach(function(element) {
-        element.style.display = "none";
-      });
+
+      document
+        .querySelectorAll(".section-title")
+        .forEach(function(element) {
+
+          element.style.display = "none";
+
+        });
+
 
       document.querySelector(".quick-actions").style.display = "none";
+
       document.querySelector(".todo").style.display = "none";
 
-      document.getElementById("sideMenu").classList.remove("open");
+
+      document
+        .getElementById("sideMenu")
+        .classList
+        .remove("open");
 
     }
+
 
 
     function closeStock() {
 
       document.querySelector(".stock-screen").style.display = "none";
+
       document.querySelector(".category-screen").style.display = "none";
 
       document.querySelector(".balance-card").style.display = "";
 
-      document.querySelectorAll(".section-title").forEach(function(element) {
-        element.style.display = "";
-      });
+
+      document
+        .querySelectorAll(".section-title")
+        .forEach(function(element) {
+
+          element.style.display = "";
+
+        });
+
 
       document.querySelector(".quick-actions").style.display = "";
+
       document.querySelector(".todo").style.display = "";
 
     }
+
 
 
     function openCategory(category) {
@@ -541,6 +773,7 @@
     }
 
 
+
     function closeCategory() {
 
       document.getElementById("abarrotesScreen").style.display = "none";
@@ -550,11 +783,38 @@
     }
 
 
+
     function openAddProduct() {
 
       alert("Próximamente: agregar producto");
 
     }
+
+
+
+    function showNote(event, note) {
+
+      event.stopPropagation();
+
+
+      const popup =
+        document.getElementById("notePopup");
+
+
+      popup.textContent = note;
+
+
+      popup.style.display = "block";
+
+
+      setTimeout(function() {
+
+        popup.style.display = "none";
+
+      }, 2500);
+
+    }
+
 
   </script>
 
