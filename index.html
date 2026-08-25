@@ -488,20 +488,18 @@
   <script src="app.js"></script>
 
 
-  <!-- STOCK FUNCTIONS -->
+ <!-- STOCK FUNCTIONS -->
 
- <script>
+<script>
 
   function openStock() {
 
     document.querySelector(".stock-screen").style.display = "block";
+    document.querySelector(".category-screen").style.display = "none";
 
     document.querySelector(".balance-card").style.display = "none";
-
     document.querySelector(".section-title").style.display = "none";
-
     document.querySelector(".quick-actions").style.display = "none";
-
     document.querySelector(".todo").style.display = "none";
 
     document.getElementById("sideMenu").classList.remove("open");
@@ -512,13 +510,11 @@
   function closeStock() {
 
     document.querySelector(".stock-screen").style.display = "none";
+    document.querySelector(".category-screen").style.display = "none";
 
     document.querySelector(".balance-card").style.display = "";
-
     document.querySelector(".section-title").style.display = "";
-
     document.querySelector(".quick-actions").style.display = "";
-
     document.querySelector(".todo").style.display = "";
 
   }
@@ -553,8 +549,6 @@
   }
 
 </script>
-
-
 </body>
 
 </html>
