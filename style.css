@@ -472,3 +472,23 @@ button {
   }
 
 }
+/* ================================
+   OJITO DEL SALDO
+================================ */
+
+.balance-toggle:checked ~ .balance {
+  color: transparent;
+  position: relative;
+}
+
+.balance-toggle:checked ~ .balance::after {
+  content: "••••••";
+  color: white;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.balance-toggle:checked ~ .balance-title .eye {
+  opacity: 1;
+}
