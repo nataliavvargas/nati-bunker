@@ -744,51 +744,106 @@
 
     function showNote(event, note) {
 
-      event.stopPropagation();
+     event.stopPropagation();
+
+  /* En computadora NO hacemos nada.
+     El hover del CSS ya muestra la nota. */
+
+  if (
+    window.matchMedia(
+      "(hover: hover) and (pointer: fine)"
+    ).matches
+  ) {
+    return;
+  }
 
 
-      const oldPopup =
-        document.querySelector(".note-popup");
+  /* En celular mostramos la nota */
+
+  const oldPopup =
+    document.querySelector(".note-popup");
 
 
-      if (oldPopup) {
-        oldPopup.remove();
-      }
+  if (oldPopup) {
+    oldPopup.remove();
+  }
 
 
-      const popup =
-        document.createElement("div");
+  const popup =
+    document.createElement("div");
 
 
-      popup.className = "note-popup";
+  popup.className = "note-popup";
 
-      popup.textContent = note;
-
-
-      document.body.appendChild(popup);
+  popup.textContent = note;
 
 
-      const button =
-        event.currentTarget;
+  document.body.appendChild(popup);
 
 
-      const rect =
-        button.getBoundingClientRect();
+  const button =
+    event.currentTarget;
 
 
-      popup.style.left =
-        rect.left + "px";
+  const rect =
+    button.getBoundingClientRect();
 
 
-      popup.style.top =
-        (rect.bottom + 8) + "px";
+  /* Primero la colocamos arriba */
+
+  let left =
+    rect.left +
+    (rect.width / 2) -
+    (popup.offsetWidth / 2);
 
 
-      setTimeout(function() {
+  let top =
+    rect.top -
+    popup.offsetHeight -
+    10;
 
-        popup.remove();
 
-      }, 2500);
+  /* Evitamos que se salga por los costados */
+
+  left = Math.max(
+    8,
+    Math.min(
+      left,
+      window.innerWidth -
+      popup.offsetWidth -
+      8
+    )
+  );
+
+
+  /* Si arriba no hay espacio,
+     la ponemos debajo */
+
+  if (top < 8) {
+
+    top =
+      rect.bottom + 10;
+
+  }
+
+
+  popup.style.left =
+    left + "px";
+
+
+  popup.style.top =
+    top + "px";
+
+
+  setTimeout(function() {
+
+    if (popup) {
+      popup.remove();
+    }
+
+  }, 3000);
+
+} 
 
     }
 
