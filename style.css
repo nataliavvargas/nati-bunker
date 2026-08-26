@@ -591,6 +591,10 @@ button {
 }
 
 
+/* =================================
+   NOTAS DE PRODUCTOS
+================================= */
+
 .note-button {
   border: none;
 
@@ -602,77 +606,107 @@ button {
 
   cursor: pointer;
 
-  font-size: 15px;
+  font-size: 14px;
 
   line-height: 1;
+
+  position: relative;
 }
 
 
-.note-button:hover {
-  transform: scale(1.1);
+/* 💻 COMPUTADORA */
+
+@media (hover: hover) and (pointer: fine) {
+
+  .note-button:hover::after {
+
+    content: attr(data-note);
+
+    position: absolute;
+
+    bottom: calc(100% + 8px);
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: max-content;
+
+    max-width: 230px;
+
+    background: #111;
+
+    color: white;
+
+    padding: 8px 10px;
+
+    border-radius: 5px;
+
+    font-size: 11px;
+
+    line-height: 1.25;
+
+    font-weight: normal;
+
+    text-align: left;
+
+    white-space: normal;
+
+    z-index: 3000;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
+  }
+
+
+  .note-button:hover::before {
+
+    content: "";
+
+    position: absolute;
+
+    bottom: calc(100% + 3px);
+
+    left: 50%;
+
+    transform: translateX(-50%) rotate(45deg);
+
+    width: 8px;
+
+    height: 8px;
+
+    background: #111;
+
+    z-index: 3001;
+  }
+
 }
 
 
-/* NOTE POPUP */
+/* 📱 CELULAR */
 
 .note-popup {
+
   position: fixed;
 
-  z-index: 2000;
+  z-index: 3000;
 
-  max-width: 220px;
+  max-width: 230px;
 
   background: #111;
 
   color: white;
 
-  padding: 9px 12px;
+  padding: 9px 11px;
 
-  border-radius: 10px;
+  border-radius: 5px;
 
-  font-size: 12px;
+  font-size: 11px;
 
-  line-height: 1.3;
+  line-height: 1.25;
 
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
 
-  animation: noteAppear 0.15s ease;
-}
-
-
-.note-popup::after {
-  content: "";
-
-  position: absolute;
-
-  bottom: -5px;
-
-  left: 14px;
-
-  width: 10px;
-
-  height: 10px;
-
-  background: #111;
-
-  transform: rotate(45deg);
-}
-
-
-@keyframes noteAppear {
-
-  from {
-    opacity: 0;
-
-    transform: translateY(4px);
-  }
-
-  to {
-    opacity: 1;
-
-    transform: translateY(0);
-  }
-
+  pointer-events: none;
 }
 
 
