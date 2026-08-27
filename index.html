@@ -32,9 +32,13 @@
 
       <div class="brand">
 
-        <h1>Nati Bunker</h1>
+        <h1 onclick="goHome()">
+          Nati Bunker
+        </h1>
 
-        <p>La Matriz</p>
+        <p>
+          La Matriz
+        </p>
 
       </div>
 
@@ -76,12 +80,17 @@
 
       <nav class="menu-options">
 
-        <button onclick="closeMenu()">
+
+        <button
+          onclick="goHome()"
+        >
           🏠 Inicio
         </button>
 
 
-        <button onclick="openStock()">
+        <button
+          onclick="openStock()"
+        >
           📦 Stock
         </button>
 
@@ -105,6 +114,7 @@
           💵 Ingresos
         </button>
 
+
       </nav>
 
     </aside>
@@ -118,7 +128,9 @@
       id="stockScreen"
     >
 
+
       <div class="stock-header">
+
 
         <button
           class="back-button"
@@ -140,6 +152,7 @@
 
         </div>
 
+
       </div>
 
 
@@ -147,6 +160,7 @@
       <!-- BUSCADOR -->
 
       <div class="stock-search">
+
 
         <span>
           🔎
@@ -167,6 +181,7 @@
           ＋
         </button>
 
+
       </div>
 
 
@@ -182,7 +197,9 @@
             🧴 Aseo / Botiquín
           </span>
 
-          <span>›</span>
+          <span>
+            ›
+          </span>
 
         </button>
 
@@ -193,7 +210,9 @@
             🧹 Limpieza
           </span>
 
-          <span>›</span>
+          <span>
+            ›
+          </span>
 
         </button>
 
@@ -207,7 +226,9 @@
             🍔 Abarrotes
           </span>
 
-          <span>›</span>
+          <span>
+            ›
+          </span>
 
         </button>
 
@@ -218,7 +239,9 @@
             🧂 Condimentos
           </span>
 
-          <span>›</span>
+          <span>
+            ›
+          </span>
 
         </button>
 
@@ -229,7 +252,9 @@
             🍝 Pastas
           </span>
 
-          <span>›</span>
+          <span>
+            ›
+          </span>
 
         </button>
 
@@ -240,7 +265,9 @@
             🥛 Lácteos
           </span>
 
-          <span>›</span>
+          <span>
+            ›
+          </span>
 
         </button>
 
@@ -251,7 +278,9 @@
             🥩 Carne
           </span>
 
-          <span>›</span>
+          <span>
+            ›
+          </span>
 
         </button>
 
@@ -262,7 +291,9 @@
             🥤 Bebidas
           </span>
 
-          <span>›</span>
+          <span>
+            ›
+          </span>
 
         </button>
 
@@ -273,7 +304,9 @@
             🥦 Verduras
           </span>
 
-          <span>›</span>
+          <span>
+            ›
+          </span>
 
         </button>
 
@@ -293,6 +326,7 @@
 
 
       <div class="stock-header">
+
 
         <button
           class="back-button"
@@ -314,6 +348,7 @@
 
         </div>
 
+
       </div>
 
 
@@ -321,6 +356,7 @@
       <!-- BUSCADOR -->
 
       <div class="stock-search">
+
 
         <span>
           🔎
@@ -339,6 +375,7 @@
         >
           ＋
         </button>
+
 
       </div>
 
@@ -383,10 +420,10 @@
               </strong>
 
 
-             <button
-  class="note-button"
-  data-note="Comprar 1+"
-  onclick="showNote(event, 'Comprar 1+')"
+              <button
+                class="note-button"
+                data-note="Comprar 1+"
+                onclick="showNote(event, 'Comprar 1+')"
               >
                 💬
               </button>
@@ -640,6 +677,7 @@
 
   <script>
 
+
     function openMenu() {
 
       document
@@ -660,41 +698,27 @@
     }
 
 
-    function openStock() {
 
-      document.querySelector(".stock-screen").style.display = "block";
+    /* HOME */
 
-      document.querySelector(".category-screen").style.display = "none";
+    function goHome() {
 
-      document.querySelector(".balance-card").style.display = "none";
+      document
+        .querySelector(".stock-screen")
+        .style
+        .display = "none";
 
 
       document
-        .querySelectorAll(".section-title")
-        .forEach(function(element) {
-
-          element.style.display = "none";
-
-        });
+        .querySelector(".category-screen")
+        .style
+        .display = "none";
 
 
-      document.querySelector(".quick-actions").style.display = "none";
-
-      document.querySelector(".todo").style.display = "none";
-
-
-      closeMenu();
-
-    }
-
-
-    function closeStock() {
-
-      document.querySelector(".stock-screen").style.display = "none";
-
-      document.querySelector(".category-screen").style.display = "none";
-
-      document.querySelector(".balance-card").style.display = "";
+      document
+        .querySelector(".balance-card")
+        .style
+        .display = "";
 
 
       document
@@ -706,34 +730,158 @@
         });
 
 
-      document.querySelector(".quick-actions").style.display = "";
+      document
+        .querySelector(".quick-actions")
+        .style
+        .display = "";
 
-      document.querySelector(".todo").style.display = "";
+
+      document
+        .querySelector(".todo")
+        .style
+        .display = "";
+
+
+      closeMenu();
 
     }
 
+
+
+    /* STOCK */
+
+    function openStock() {
+
+      document
+        .querySelector(".stock-screen")
+        .style
+        .display = "block";
+
+
+      document
+        .querySelector(".category-screen")
+        .style
+        .display = "none";
+
+
+      document
+        .querySelector(".balance-card")
+        .style
+        .display = "none";
+
+
+      document
+        .querySelectorAll(".section-title")
+        .forEach(function(element) {
+
+          element.style.display = "none";
+
+        });
+
+
+      document
+        .querySelector(".quick-actions")
+        .style
+        .display = "none";
+
+
+      document
+        .querySelector(".todo")
+        .style
+        .display = "none";
+
+
+      closeMenu();
+
+    }
+
+
+
+    function closeStock() {
+
+      document
+        .querySelector(".stock-screen")
+        .style
+        .display = "none";
+
+
+      document
+        .querySelector(".category-screen")
+        .style
+        .display = "none";
+
+
+      document
+        .querySelector(".balance-card")
+        .style
+        .display = "";
+
+
+      document
+        .querySelectorAll(".section-title")
+        .forEach(function(element) {
+
+          element.style.display = "";
+
+        });
+
+
+      document
+        .querySelector(".quick-actions")
+        .style
+        .display = "";
+
+
+      document
+        .querySelector(".todo")
+        .style
+        .display = "";
+
+    }
+
+
+
+    /* CATEGORÍAS */
 
     function openCategory(category) {
 
       if (category === "abarrotes") {
 
-        document.querySelector(".stock-screen").style.display = "none";
+        document
+          .querySelector(".stock-screen")
+          .style
+          .display = "none";
 
-        document.getElementById("abarrotesScreen").style.display = "block";
+
+        document
+          .getElementById("abarrotesScreen")
+          .style
+          .display = "block";
 
       }
 
     }
 
 
+
     function closeCategory() {
 
-      document.getElementById("abarrotesScreen").style.display = "none";
+      document
+        .getElementById("abarrotesScreen")
+        .style
+        .display = "none";
 
-      document.querySelector(".stock-screen").style.display = "block";
+
+      document
+        .querySelector(".stock-screen")
+        .style
+        .display = "block";
 
     }
 
+
+
+    /* AGREGAR PRODUCTO */
 
     function openAddProduct() {
 
@@ -742,109 +890,123 @@
     }
 
 
+
+    /* NOTAS */
+
     function showNote(event, note) {
 
-     event.stopPropagation();
-
-  /* En computadora NO hacemos nada.
-     El hover del CSS ya muestra la nota. */
-
-  if (
-    window.matchMedia(
-      "(hover: hover) and (pointer: fine)"
-    ).matches
-  ) {
-    return;
-  }
+      event.stopPropagation();
 
 
-  /* En celular mostramos la nota */
+      /*
+        En computadora:
+        el CSS muestra la nota con hover.
+      */
 
-  const oldPopup =
-    document.querySelector(".note-popup");
+      if (
+        window.matchMedia(
+          "(hover: hover) and (pointer: fine)"
+        ).matches
+      ) {
 
+        return;
 
-  if (oldPopup) {
-    oldPopup.remove();
-  }
-
-
-  const popup =
-    document.createElement("div");
-
-
-  popup.className = "note-popup";
-
-  popup.textContent = note;
+      }
 
 
-  document.body.appendChild(popup);
+      /*
+        En celular:
+        mostramos la nota al tocar.
+      */
+
+      const oldPopup =
+        document.querySelector(".note-popup");
 
 
-  const button =
-    event.currentTarget;
+      if (oldPopup) {
+
+        oldPopup.remove();
+
+      }
 
 
-  const rect =
-    button.getBoundingClientRect();
+      const popup =
+        document.createElement("div");
 
 
-  /* Primero la colocamos arriba */
-
-  let left =
-    rect.left +
-    (rect.width / 2) -
-    (popup.offsetWidth / 2);
+      popup.className =
+        "note-popup";
 
 
-  let top =
-    rect.top -
-    popup.offsetHeight -
-    10;
+      popup.textContent =
+        note;
 
 
-  /* Evitamos que se salga por los costados */
-
-  left = Math.max(
-    8,
-    Math.min(
-      left,
-      window.innerWidth -
-      popup.offsetWidth -
-      8
-    )
-  );
+      document
+        .body
+        .appendChild(popup);
 
 
-  /* Si arriba no hay espacio,
-     la ponemos debajo */
-
-  if (top < 8) {
-
-    top =
-      rect.bottom + 10;
-
-  }
+      const button =
+        event.currentTarget;
 
 
-  popup.style.left =
-    left + "px";
+      const rect =
+        button.getBoundingClientRect();
 
 
-  popup.style.top =
-    top + "px";
+      let left =
+        rect.left +
+        (rect.width / 2) -
+        (popup.offsetWidth / 2);
 
 
-  setTimeout(function() {
+      let top =
+        rect.top -
+        popup.offsetHeight -
+        10;
 
-    if (popup) {
-      popup.remove();
+
+      left =
+        Math.max(
+          8,
+          Math.min(
+            left,
+            window.innerWidth -
+            popup.offsetWidth -
+            8
+          )
+        );
+
+
+      if (top < 8) {
+
+        top =
+          rect.bottom + 10;
+
+      }
+
+
+      popup.style.left =
+        left + "px";
+
+
+      popup.style.top =
+        top + "px";
+
+
+      setTimeout(function() {
+
+        if (popup) {
+
+          popup.remove();
+
+        }
+
+      }, 3000);
+
     }
 
-  }, 3000);
-
-
-    }
 
   </script>
 
