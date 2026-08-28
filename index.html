@@ -95,7 +95,9 @@
         </button>
 
 
-        <button>
+        <button
+          onclick="openShoppingList()"
+        >
           🛒 Lista de compras
         </button>
 
@@ -488,6 +490,154 @@
 
 
 
+    <!-- LISTA DE COMPRAS -->
+
+    <section
+      class="shopping-screen"
+      id="shoppingScreen"
+    >
+
+
+      <div class="stock-header">
+
+
+        <button
+          class="back-button"
+          onclick="closeShoppingList()"
+        >
+          ←
+        </button>
+
+
+        <div>
+
+          <h2>
+            🛒 Lista de compras
+          </h2>
+
+          <p>
+            Lo que falta comprar
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+
+      <!-- PRODUCTOS PARA COMPRAR -->
+
+      <div class="shopping-list">
+
+
+        <div class="shopping-item">
+
+          <div class="shopping-left">
+
+            <button
+              class="shopping-check"
+              type="button"
+            >
+              ○
+            </button>
+
+
+            <div>
+
+              <strong>
+                Arroz
+              </strong>
+
+              <span>
+                1 unidad
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="shopping-item">
+
+          <div class="shopping-left">
+
+            <button
+              class="shopping-check"
+              type="button"
+            >
+              ○
+            </button>
+
+
+            <div>
+
+              <strong>
+                Atún
+              </strong>
+
+              <span>
+                2 latas
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="shopping-item">
+
+          <div class="shopping-left">
+
+            <button
+              class="shopping-check"
+              type="button"
+            >
+              ○
+            </button>
+
+
+            <div>
+
+              <strong>
+                Papel higiénico
+              </strong>
+
+              <span>
+                1 paquete
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+
+      <!-- AGREGAR -->
+
+      <button
+        class="add-shopping"
+        onclick="alert('Próximamente: agregar producto')"
+      >
+        ＋ Agregar producto
+      </button>
+
+
+    </section>
+
+
+
     <!-- BALANCE -->
 
     <section class="balance-card">
@@ -678,6 +828,8 @@
   <script>
 
 
+    /* MENU */
+
     function openMenu() {
 
       document
@@ -711,6 +863,12 @@
 
       document
         .querySelector(".category-screen")
+        .style
+        .display = "none";
+
+
+      document
+        .querySelector(".shopping-screen")
         .style
         .display = "none";
 
@@ -765,6 +923,12 @@
 
 
       document
+        .querySelector(".shopping-screen")
+        .style
+        .display = "none";
+
+
+      document
         .querySelector(".balance-card")
         .style
         .display = "none";
@@ -812,6 +976,12 @@
 
 
       document
+        .querySelector(".shopping-screen")
+        .style
+        .display = "none";
+
+
+      document
         .querySelector(".balance-card")
         .style
         .display = "";
@@ -841,7 +1011,7 @@
 
 
 
-    /* CATEGORÍAS */
+    /* ABARROTES */
 
     function openCategory(category) {
 
@@ -876,6 +1046,75 @@
         .querySelector(".stock-screen")
         .style
         .display = "block";
+
+    }
+
+
+
+    /* LISTA DE COMPRAS */
+
+    function openShoppingList() {
+
+      document
+        .querySelector(".stock-screen")
+        .style
+        .display = "none";
+
+
+      document
+        .querySelector(".category-screen")
+        .style
+        .display = "none";
+
+
+      document
+        .querySelector(".shopping-screen")
+        .style
+        .display = "block";
+
+
+      document
+        .querySelector(".balance-card")
+        .style
+        .display = "none";
+
+
+      document
+        .querySelectorAll(".section-title")
+        .forEach(function(element) {
+
+          element.style.display = "none";
+
+        });
+
+
+      document
+        .querySelector(".quick-actions")
+        .style
+        .display = "none";
+
+
+      document
+        .querySelector(".todo")
+        .style
+        .display = "none";
+
+
+      closeMenu();
+
+    }
+
+
+
+    function closeShoppingList() {
+
+      document
+        .querySelector(".shopping-screen")
+        .style
+        .display = "none";
+
+
+      goHome();
 
     }
 
