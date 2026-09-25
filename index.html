@@ -1,1255 +1,344 @@
 <!DOCTYPE html>
 <html lang="es">
-
+ 
 <head>
-
+ 
   <meta charset="UTF-8">
-
+ 
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
   >
-
+ 
   <title>Nati Bunker — La Matriz</title>
-
+ 
   <link
     rel="stylesheet"
     href="style.css"
   >
-
+ 
 </head>
-
-
+ 
+ 
 <body>
-
-
+ 
+ 
   <main class="app">
-
-
+ 
+ 
     <!-- HEADER -->
-
+ 
     <header class="header">
-
+ 
       <div class="brand">
-
+ 
         <h1 onclick="goHome()">
           Nati Bunker
         </h1>
-
+ 
         <p>
           La Matriz
         </p>
-
+ 
       </div>
-
-
+ 
+ 
       <button
         class="menu"
         onclick="openMenu()"
       >
         ☰
       </button>
-
+ 
     </header>
-
-
-
+ 
+ 
+ 
     <!-- MENU -->
-
+ 
     <aside
       class="side-menu"
       id="sideMenu"
     >
-
+ 
       <div class="side-menu-header">
-
+ 
         <strong>
           LA MATRIZ
         </strong>
-
-
+ 
+ 
         <button
           class="close-menu"
           onclick="closeMenu()"
         >
           ×
         </button>
-
+ 
       </div>
-
-
+ 
+ 
       <nav class="menu-options">
-
-
-        <button
-          onclick="goHome()"
-        >
-          🏠 Inicio
-        </button>
-
-
-        <button
-          onclick="openStock()"
-        >
-          📦 Stock
-        </button>
-
-
-        <button
-          onclick="openShoppingList()"
-        >
-          🛒 Lista de compras
-        </button>
-
-
-        <button>
-          💸 Gastos
-        </button>
-
-
-        <button>
-          🧾 Cuentas
-        </button>
-
-
-        <button>
-          💵 Ingresos
-        </button>
-
-
+ 
+        <button onclick="goHome()">🏠 Inicio</button>
+        <button onclick="openStock()">📦 Stock</button>
+        <button onclick="openShoppingList()">🛒 Lista de compras</button>
+        <button onclick="openScreen('gastosScreen')">💸 Gastos</button>
+        <button onclick="openScreen('cuentasScreen')">🧾 Cuentas</button>
+        <button onclick="openScreen('ingresosScreen')">💵 Ingresos</button>
+        <button onclick="openScreen('historialScreen')">🕘 Historial</button>
+ 
       </nav>
-
+ 
     </aside>
-
-
-
+ 
+ 
+ 
+    <!-- HOME -->
+ 
+    <div id="homeScreen">
+ 
+ 
+      <!-- BALANCE -->
+ 
+      <section class="balance-card">
+ 
+        <input type="checkbox" id="balanceToggle" class="balance-toggle">
+ 
+        <div class="balance-title">
+          <span>💰 DISPONIBLE</span>
+          <label for="balanceToggle" class="eye">👁</label>
+        </div>
+ 
+        <div class="balance" id="balanceAmount">$ 0</div>
+ 
+        <div class="balance-sub" id="separadoResumen"></div>
+ 
+      </section>
+ 
+ 
+      <!-- QUICK ACTIONS -->
+ 
+      <h2 class="section-title">⚡ ACCIONES RÁPIDAS</h2>
+ 
+      <section class="quick-actions">
+ 
+        <button class="quick-button" onclick="openGastoModal()">
+          <div class="quick-icon">🍫</div>
+          <div class="quick-title">Gasto rápido</div>
+          <div class="quick-description">Kiosco, café, gustitos...</div>
+        </button>
+ 
+        <button class="quick-button" onclick="openSupermercadoModal()">
+          <div class="quick-icon">🛒</div>
+          <div class="quick-title">Supermercado</div>
+          <div class="quick-description">Stock y lista de compras</div>
+        </button>
+ 
+        <button class="quick-button" onclick="openPagarCuentaModal()">
+          <div class="quick-icon">🧾</div>
+          <div class="quick-title">Pagar cuenta</div>
+          <div class="quick-description">Luz, gas, internet...</div>
+        </button>
+ 
+        <button class="quick-button" onclick="openIngresoModal()">
+          <div class="quick-icon">💵</div>
+          <div class="quick-title">Ingreso</div>
+          <div class="quick-description">Sueldo y otros ingresos</div>
+        </button>
+ 
+      </section>
+ 
+ 
+      <!-- TODO -->
+ 
+      <h2 class="section-title">🔔 PARA HACER</h2>
+ 
+      <section class="todo" id="todoList"></section>
+ 
+ 
+    </div>
+ 
+ 
+ 
     <!-- STOCK -->
-
-    <section
-      class="stock-screen"
-      id="stockScreen"
-    >
-
-
+ 
+    <section class="app-screen" id="stockScreen">
+ 
       <div class="stock-header">
-
-
-        <button
-          class="back-button"
-          onclick="closeStock()"
-        >
-          ←
-        </button>
-
-
+        <button class="back-button" onclick="goHome()">←</button>
         <div>
-
-          <h2>
-            📦 Stock
-          </h2>
-
-          <p>
-            Lo que hay en casa
-          </p>
-
+          <h2>📦 Stock</h2>
+          <p>Lo que hay en casa</p>
         </div>
-
-
       </div>
-
-
-
-      <!-- BUSCADOR -->
-
+ 
       <div class="stock-search">
-
-
-        <span>
-          🔎
-        </span>
-
-
-        <input
-          type="text"
-          id="stockSearch"
-          placeholder="Buscar producto..."
-        >
-
-
-        <button
-          class="add-product"
-          onclick="openAddProduct()"
-        >
-          ＋
-        </button>
-
-
+        <span>🔎</span>
+        <input type="text" id="stockSearch" placeholder="Buscar producto...">
+        <button class="add-product" onclick="openProductModal()">＋</button>
       </div>
-
-
-
-      <!-- CATEGORÍAS -->
-
-      <div class="stock-categories">
-
-
-        <button class="stock-category">
-
-          <span>
-            🧴 Aseo / Botiquín
-          </span>
-
-          <span>
-            ›
-          </span>
-
-        </button>
-
-
-        <button class="stock-category">
-
-          <span>
-            🧹 Limpieza
-          </span>
-
-          <span>
-            ›
-          </span>
-
-        </button>
-
-
-        <button
-          class="stock-category"
-          onclick="openCategory('abarrotes')"
-        >
-
-          <span>
-            🍔 Abarrotes
-          </span>
-
-          <span>
-            ›
-          </span>
-
-        </button>
-
-
-        <button class="stock-category">
-
-          <span>
-            🧂 Condimentos
-          </span>
-
-          <span>
-            ›
-          </span>
-
-        </button>
-
-
-        <button class="stock-category">
-
-          <span>
-            🍝 Pastas
-          </span>
-
-          <span>
-            ›
-          </span>
-
-        </button>
-
-
-        <button class="stock-category">
-
-          <span>
-            🥛 Lácteos
-          </span>
-
-          <span>
-            ›
-          </span>
-
-        </button>
-
-
-        <button class="stock-category">
-
-          <span>
-            🥩 Carne
-          </span>
-
-          <span>
-            ›
-          </span>
-
-        </button>
-
-
-        <button class="stock-category">
-
-          <span>
-            🥤 Bebidas
-          </span>
-
-          <span>
-            ›
-          </span>
-
-        </button>
-
-
-        <button class="stock-category">
-
-          <span>
-            🥦 Verduras
-          </span>
-
-          <span>
-            ›
-          </span>
-
-        </button>
-
-
-      </div>
-
+ 
+      <div class="stock-categories" id="stockCategories"></div>
+ 
+      <div class="product-list" id="stockSearchResults" style="display:none;"></div>
+ 
     </section>
-
-
-
-    <!-- ABARROTES -->
-
-    <section
-      class="category-screen"
-      id="abarrotesScreen"
-    >
-
-
+ 
+ 
+ 
+    <!-- CATEGORÍA (dinámica) -->
+ 
+    <section class="app-screen" id="categoryScreen">
+ 
       <div class="stock-header">
-
-
-        <button
-          class="back-button"
-          onclick="closeCategory()"
-        >
-          ←
-        </button>
-
-
+        <button class="back-button" onclick="openStock()">←</button>
         <div>
-
-          <h2>
-            🍔 Abarrotes
-          </h2>
-
-          <p>
-            Despensa
-          </p>
-
+          <h2 id="categoryTitle">Categoría</h2>
+          <p id="categorySubtitle">Productos</p>
         </div>
-
-
       </div>
-
-
-
-      <!-- BUSCADOR -->
-
+ 
       <div class="stock-search">
-
-
-        <span>
-          🔎
-        </span>
-
-
-        <input
-          type="text"
-          placeholder="Buscar producto..."
-        >
-
-
-        <button
-          class="add-product"
-          onclick="openAddProduct()"
-        >
-          ＋
-        </button>
-
-
+        <span>🔎</span>
+        <input type="text" id="categorySearch" placeholder="Buscar producto...">
+        <button class="add-product" id="categoryAddProduct">＋</button>
       </div>
-
-
-
-      <!-- PRODUCTOS -->
-
-      <div class="product-list">
-
-
-        <!-- ATÚN -->
-
-        <div class="product-item">
-
-          <div class="product-info">
-
-            <strong>
-              Atún
-            </strong>
-
-            <span>
-              3 latas
-            </span>
-
-          </div>
-
-        </div>
-
-
-
-        <!-- ARROZ -->
-
-        <div class="product-item">
-
-          <div class="product-info">
-
-
-            <div class="product-name">
-
-              <strong>
-                Arroz
-              </strong>
-
-
-              <button
-                class="note-button"
-                data-note="Comprar 1+"
-                onclick="showNote(event, 'Comprar 1+')"
-              >
-                💬
-              </button>
-
-            </div>
-
-
-            <span>
-              2 unidades
-            </span>
-
-
-          </div>
-
-        </div>
-
-
-
-        <!-- ACEITE -->
-
-        <div class="product-item">
-
-          <div class="product-info">
-
-            <strong>
-              Aceite
-            </strong>
-
-            <span>
-              3 unidades
-            </span>
-
-          </div>
-
-        </div>
-
-
-
-        <!-- HARINA -->
-
-        <div class="product-item">
-
-          <div class="product-info">
-
-            <strong>
-              Harina
-            </strong>
-
-            <span>
-              1 unidad
-            </span>
-
-          </div>
-
-        </div>
-
-
-      </div>
-
-
+ 
+      <div class="product-list" id="categoryProductList"></div>
+ 
     </section>
-
-
-
+ 
+ 
+ 
     <!-- LISTA DE COMPRAS -->
-
-    <section
-      class="shopping-screen"
-      id="shoppingScreen"
-    >
-
-
+ 
+    <section class="app-screen" id="shoppingScreen">
+ 
       <div class="stock-header">
-
-
-        <button
-          class="back-button"
-          onclick="closeShoppingList()"
-        >
-          ←
-        </button>
-
-
+        <button class="back-button" onclick="goHome()">←</button>
         <div>
-
-          <h2>
-            🛒 Lista de compras
-          </h2>
-
-          <p>
-            Lo que falta comprar
-          </p>
-
+          <h2>🛒 Lista de compras</h2>
+          <p>Lo que falta comprar</p>
         </div>
-
-
       </div>
-
-
-
-      <!-- PRODUCTOS PARA COMPRAR -->
-
-      <div class="shopping-list">
-
-
-        <div class="shopping-item">
-
-          <div class="shopping-left">
-
-            <button
-              class="shopping-check"
-              type="button"
-            >
-              ○
-            </button>
-
-
-            <div>
-
-              <strong>
-                Arroz
-              </strong>
-
-              <span>
-                1 unidad
-              </span>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-
-        <div class="shopping-item">
-
-          <div class="shopping-left">
-
-            <button
-              class="shopping-check"
-              type="button"
-            >
-              ○
-            </button>
-
-
-            <div>
-
-              <strong>
-                Atún
-              </strong>
-
-              <span>
-                2 latas
-              </span>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-
-        <div class="shopping-item">
-
-          <div class="shopping-left">
-
-            <button
-              class="shopping-check"
-              type="button"
-            >
-              ○
-            </button>
-
-
-            <div>
-
-              <strong>
-                Papel higiénico
-              </strong>
-
-              <span>
-                1 paquete
-              </span>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-      </div>
-
-
-
-      <!-- AGREGAR -->
-
-      <button
-        class="add-shopping"
-        onclick="alert('Próximamente: agregar producto')"
-      >
-        ＋ Agregar producto
-      </button>
-
-
+ 
+      <div class="shopping-list" id="shoppingList"></div>
+ 
+      <button class="add-shopping" onclick="openProductModal()">＋ Agregar producto</button>
+ 
     </section>
-
-
-
-    <!-- BALANCE -->
-
-    <section class="balance-card">
-
-
-      <input
-        type="checkbox"
-        id="balanceToggle"
-        class="balance-toggle"
-      >
-
-
-      <div class="balance-title">
-
-        <span>
-          💰 DISPONIBLE
-        </span>
-
-
-        <label
-          for="balanceToggle"
-          class="eye"
-        >
-          👁
-        </label>
-
+ 
+ 
+ 
+    <!-- GASTOS -->
+ 
+    <section class="app-screen" id="gastosScreen">
+ 
+      <div class="stock-header">
+        <button class="back-button" onclick="goHome()">←</button>
+        <div>
+          <h2>💸 Gastos</h2>
+          <p>Movimientos y categorías</p>
+        </div>
       </div>
-
-
-      <div class="balance">
-        $ 1.234.567
-      </div>
-
-
+ 
+      <div class="summary-card" id="gastosResumenMes"></div>
+ 
+      <div class="summary-card" id="gastosPorCategoria"></div>
+ 
+      <button class="add-shopping" onclick="openGastoModal()">＋ Agregar gasto</button>
+ 
+      <div class="movement-list" id="gastosList"></div>
+ 
     </section>
-
-
-
-    <!-- QUICK ACTIONS -->
-
-    <h2 class="section-title">
-      ⚡ ACCIONES RÁPIDAS
-    </h2>
-
-
-    <section class="quick-actions">
-
-
-      <button class="quick-button">
-
-        <div class="quick-icon">
-          🍫
+ 
+ 
+ 
+    <!-- CUENTAS -->
+ 
+    <section class="app-screen" id="cuentasScreen">
+ 
+      <div class="stock-header">
+        <button class="back-button" onclick="goHome()">←</button>
+        <div>
+          <h2>🧾 Cuentas</h2>
+          <p>Obligaciones pendientes</p>
         </div>
-
-        <div class="quick-title">
-          Gasto rápido
-        </div>
-
-        <div class="quick-description">
-          Kiosco, café, gustitos...
-        </div>
-
-      </button>
-
-
-
-      <button class="quick-button">
-
-        <div class="quick-icon">
-          🛒
-        </div>
-
-        <div class="quick-title">
-          Supermercado
-        </div>
-
-        <div class="quick-description">
-          Stock y lista de compras
-        </div>
-
-      </button>
-
-
-
-      <button class="quick-button">
-
-        <div class="quick-icon">
-          🧾
-        </div>
-
-        <div class="quick-title">
-          Pagar cuenta
-        </div>
-
-        <div class="quick-description">
-          Luz, gas, internet...
-        </div>
-
-      </button>
-
-
-
-      <button class="quick-button">
-
-        <div class="quick-icon">
-          💵
-        </div>
-
-        <div class="quick-title">
-          Ingreso
-        </div>
-
-        <div class="quick-description">
-          Sueldo y otros ingresos
-        </div>
-
-      </button>
-
-
-    </section>
-
-
-
-    <!-- TODO -->
-
-    <h2 class="section-title">
-      🔔 PARA HACER
-    </h2>
-
-
-    <section class="todo">
-
-
-      <div class="todo-item">
-
-        <div class="todo-left">
-
-          <span class="todo-icon">
-            🛒
-          </span>
-
-          <span class="todo-text">
-            3 productos para comprar
-          </span>
-
-        </div>
-
-
-        <span class="arrow">
-          ›
-        </span>
-
       </div>
-
-
-
-      <div class="todo-item">
-
-        <div class="todo-left">
-
-          <span class="todo-icon">
-            🧾
-          </span>
-
-          <span class="todo-text">
-            2 cuentas pendientes
-          </span>
-
-        </div>
-
-
-        <span class="arrow">
-          ›
-        </span>
-
-      </div>
-
-
+ 
+      <button class="add-shopping" onclick="openCuentaModal()">＋ Agregar cuenta</button>
+ 
+      <div class="movement-list" id="cuentasList"></div>
+ 
     </section>
-
-
+ 
+ 
+ 
+    <!-- INGRESOS -->
+ 
+    <section class="app-screen" id="ingresosScreen">
+ 
+      <div class="stock-header">
+        <button class="back-button" onclick="goHome()">←</button>
+        <div>
+          <h2>💵 Ingresos</h2>
+          <p>Sueldo y otros ingresos</p>
+        </div>
+      </div>
+ 
+      <button class="add-shopping" onclick="openIngresoModal()">＋ Agregar ingreso</button>
+ 
+      <div class="movement-list" id="ingresosList"></div>
+ 
+      <h2 class="section-title" style="margin-top:26px;">🔒 Plata separada</h2>
+ 
+      <button class="add-shopping" onclick="openSepararModal()">＋ Separar plata</button>
+ 
+      <div class="movement-list" id="separadosList"></div>
+ 
+    </section>
+ 
+ 
+ 
+    <!-- HISTORIAL -->
+ 
+    <section class="app-screen" id="historialScreen">
+ 
+      <div class="stock-header">
+        <button class="back-button" onclick="goHome()">←</button>
+        <div>
+          <h2>🕘 Historial</h2>
+          <p>Todos los movimientos</p>
+        </div>
+      </div>
+ 
+      <div class="movement-list" id="historialList"></div>
+ 
+    </section>
+ 
+ 
   </main>
-
-
-
-  <!-- JAVASCRIPT -->
-
-  <script>
-
-
-    /* MENU */
-
-    function openMenu() {
-
-      document
-        .getElementById("sideMenu")
-        .classList
-        .add("open");
-
-    }
-
-
-    function closeMenu() {
-
-      document
-        .getElementById("sideMenu")
-        .classList
-        .remove("open");
-
-    }
-
-
-
-    /* HOME */
-
-    function goHome() {
-
-      document
-        .querySelector(".stock-screen")
-        .style
-        .display = "none";
-
-
-      document
-        .querySelector(".category-screen")
-        .style
-        .display = "none";
-
-
-      document
-        .querySelector(".shopping-screen")
-        .style
-        .display = "none";
-
-
-      document
-        .querySelector(".balance-card")
-        .style
-        .display = "";
-
-
-      document
-        .querySelectorAll(".section-title")
-        .forEach(function(element) {
-
-          element.style.display = "";
-
-        });
-
-
-      document
-        .querySelector(".quick-actions")
-        .style
-        .display = "";
-
-
-      document
-        .querySelector(".todo")
-        .style
-        .display = "";
-
-
-      closeMenu();
-
-    }
-
-
-
-    /* STOCK */
-
-    function openStock() {
-
-      document
-        .querySelector(".stock-screen")
-        .style
-        .display = "block";
-
-
-      document
-        .querySelector(".category-screen")
-        .style
-        .display = "none";
-
-
-      document
-        .querySelector(".shopping-screen")
-        .style
-        .display = "none";
-
-
-      document
-        .querySelector(".balance-card")
-        .style
-        .display = "none";
-
-
-      document
-        .querySelectorAll(".section-title")
-        .forEach(function(element) {
-
-          element.style.display = "none";
-
-        });
-
-
-      document
-        .querySelector(".quick-actions")
-        .style
-        .display = "none";
-
-
-      document
-        .querySelector(".todo")
-        .style
-        .display = "none";
-
-
-      closeMenu();
-
-    }
-
-
-
-    function closeStock() {
-
-      document
-        .querySelector(".stock-screen")
-        .style
-        .display = "none";
-
-
-      document
-        .querySelector(".category-screen")
-        .style
-        .display = "none";
-
-
-      document
-        .querySelector(".shopping-screen")
-        .style
-        .display = "none";
-
-
-      document
-        .querySelector(".balance-card")
-        .style
-        .display = "";
-
-
-      document
-        .querySelectorAll(".section-title")
-        .forEach(function(element) {
-
-          element.style.display = "";
-
-        });
-
-
-      document
-        .querySelector(".quick-actions")
-        .style
-        .display = "";
-
-
-      document
-        .querySelector(".todo")
-        .style
-        .display = "";
-
-    }
-
-
-
-    /* ABARROTES */
-
-    function openCategory(category) {
-
-      if (category === "abarrotes") {
-
-        document
-          .querySelector(".stock-screen")
-          .style
-          .display = "none";
-
-
-        document
-          .getElementById("abarrotesScreen")
-          .style
-          .display = "block";
-
-      }
-
-    }
-
-
-
-    function closeCategory() {
-
-      document
-        .getElementById("abarrotesScreen")
-        .style
-        .display = "none";
-
-
-      document
-        .querySelector(".stock-screen")
-        .style
-        .display = "block";
-
-    }
-
-
-
-    /* LISTA DE COMPRAS */
-
-    function openShoppingList() {
-
-      document
-        .querySelector(".stock-screen")
-        .style
-        .display = "none";
-
-
-      document
-        .querySelector(".category-screen")
-        .style
-        .display = "none";
-
-
-      document
-        .querySelector(".shopping-screen")
-        .style
-        .display = "block";
-
-
-      document
-        .querySelector(".balance-card")
-        .style
-        .display = "none";
-
-
-      document
-        .querySelectorAll(".section-title")
-        .forEach(function(element) {
-
-          element.style.display = "none";
-
-        });
-
-
-      document
-        .querySelector(".quick-actions")
-        .style
-        .display = "none";
-
-
-      document
-        .querySelector(".todo")
-        .style
-        .display = "none";
-
-
-      closeMenu();
-
-    }
-
-
-
-    function closeShoppingList() {
-
-      document
-        .querySelector(".shopping-screen")
-        .style
-        .display = "none";
-
-
-      goHome();
-
-    }
-
-
-
-    /* AGREGAR PRODUCTO */
-
-    function openAddProduct() {
-
-      alert("Próximamente: agregar producto");
-
-    }
-
-
-
-    /* NOTAS */
-
-    function showNote(event, note) {
-
-      event.stopPropagation();
-
-
-      /*
-        En computadora:
-        el CSS muestra la nota con hover.
-      */
-
-      if (
-        window.matchMedia(
-          "(hover: hover) and (pointer: fine)"
-        ).matches
-      ) {
-
-        return;
-
-      }
-
-
-      /*
-        En celular:
-        mostramos la nota al tocar.
-      */
-
-      const oldPopup =
-        document.querySelector(".note-popup");
-
-
-      if (oldPopup) {
-
-        oldPopup.remove();
-
-      }
-
-
-      const popup =
-        document.createElement("div");
-
-
-      popup.className =
-        "note-popup";
-
-
-      popup.textContent =
-        note;
-
-
-      document
-        .body
-        .appendChild(popup);
-
-
-      const button =
-        event.currentTarget;
-
-
-      const rect =
-        button.getBoundingClientRect();
-
-
-      let left =
-        rect.left +
-        (rect.width / 2) -
-        (popup.offsetWidth / 2);
-
-
-      let top =
-        rect.top -
-        popup.offsetHeight -
-        10;
-
-
-      left =
-        Math.max(
-          8,
-          Math.min(
-            left,
-            window.innerWidth -
-            popup.offsetWidth -
-            8
-          )
-        );
-
-
-      if (top < 8) {
-
-        top =
-          rect.bottom + 10;
-
-      }
-
-
-      popup.style.left =
-        left + "px";
-
-
-      popup.style.top =
-        top + "px";
-
-
-      setTimeout(function() {
-
-        if (popup) {
-
-          popup.remove();
-
-        }
-
-      }, 3000);
-
-    }
-
-
-  </script>
-
-
+ 
+ 
+ 
+  <!-- MODAL GENÉRICO -->
+ 
+  <div class="modal-backdrop" id="modalRoot" style="display:none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <strong id="modalTitle">Título</strong>
+        <button class="close-menu" onclick="closeModal()">×</button>
+      </div>
+      <form id="modalForm"></form>
+    </div>
+  </div>
+ 
+ 
+  <script src="app.js"></script>
+ 
+ 
 </body>
-
+ 
 </html>
+ 
